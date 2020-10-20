@@ -96,7 +96,7 @@ in your html, include
 */} 
       <h1>Components</h1>
       <div className="flex-wrap wrap">
-        <h3 className="flex-whole">Text/number Input</h3>
+        <h3 className="flex-whole">Dropdown Input</h3>
         <div className="flex-half flex-wrap">
           <Dropdown
             onSelect={e=>this.setState({
@@ -112,7 +112,14 @@ in your html, include
               value="second">Second Item</MenuItem> </Dropdown>
           <span className="flex-half">Selected: {this.state.dropdown || 'None'}</span>
         </div>
-        <div className="flex-half"></div>
+        <div className="flex-half">
+          <ReactMarkdown
+            source={`import dropdown and menuitem from ns1-gui
+#### Dropdown props
+- **onSelect** *(func)* function called when user makes a selection. access selected value with e.currentTarget.value
+#### MenuItem props
+- **value** *(string)* value to pass to onselect function`} />
+        </div>
       </div>
       <div className="flex-wrap wrap">
         <h3 className="flex-whole">Text/number Input</h3>
