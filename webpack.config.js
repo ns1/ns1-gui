@@ -138,27 +138,7 @@ let config = {
     new webpack.optimize.OccurrenceOrderPlugin(),
     ico(),
     new EditFontPlugin()
-  ],
-  optimization: {
-    minimizer: [
-      new UglifyJsPlugin({
-        warnings: false,
-        mangle:{
-          keep_classname: true,
-          keep_fnames: true,
-        },
-        // sourceMap: {
-        //   url: "inline"
-        // },
-        compress: {
-          keep_fnames: true,
-          drop_console: true,
-          dead_code: true,
-          drop_debugger: true,
-        }
-      })
-    ]
-  }
+  ]
 };
 if (!isProd){
   config.devServer = {
