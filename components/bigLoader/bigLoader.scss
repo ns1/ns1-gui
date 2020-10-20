@@ -1,0 +1,22 @@
+.bl-wrapper{
+  display: block;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  .big-loader{
+    width: 100%;
+    min-height: 100%;
+    font-weight: normal;
+    text-align: center;
+    .loader{
+      color: $pink1-background;
+      padding-bottom: 80px;
+      .loader-dot{
+        font-size: 50px;
+      }
+    }
+  }
+}

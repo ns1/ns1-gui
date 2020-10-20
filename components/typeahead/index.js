@@ -1,12 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import Text from './text';
-import {TextMenu, MenuItem} from './dropdown';
-import _ from 'lodash';
-
-import _hotKeys from '../../lib/hotkeys.js';
-
-const HotKeys = new _hotKeys();
+import Text from '../text';
+import {TextMenu, MenuItem} from '../dropdown';
 
 export default class TypeAhead extends React.Component{
   static propTypes = {
@@ -39,7 +34,6 @@ export default class TypeAhead extends React.Component{
       hideOptions: true
     };
     this.hideOptions = this.hideOptions.bind(this);
-    HotKeys.register(['Escape'], 'asns', undefined, this.hideOptions, true, 'Hide asn dropdown.');
     this.renderSelected = this.renderSelected.bind(this);
     this.filter = this.filter.bind(this);
   }
@@ -55,9 +49,6 @@ export default class TypeAhead extends React.Component{
     // if(this.props.async){
     //   this.setState({options: nextProps.options})
     // }
-  }
-  componentWillUnmount(){
-    HotKeys.nuke('asns');
   }
   hideOptions(){
     this.setState({hideOptions: true});
@@ -100,7 +91,7 @@ export default class TypeAhead extends React.Component{
         (parseVal && val) && parseVal(val).toLowerCase().indexOf(small)) :
         opt.label ? opt.label.toLowerCase().indexOf(small) > -1 ||
         opt.value.toLowerCase().indexOf(small) > -1 :
-          _.isString(opt) ? opt.toLowerCase().indexOf(small) > 1 : false;
+          typeof opt === 'string' ? opt.toLowerCase().indexOf(small) > 1 : false;
     }) : [];
   }
   render(){
@@ -140,15 +131,13 @@ export default class TypeAhead extends React.Component{
             });
           } : false}
           onFocus={() =>
-            this.setState({hideOptions: false}) ||
-            HotKeys.register(['Escape'], 'asns', undefined, this.hideOptions, true)
+            this.setState({hideOptions: false})
           }
           onBlur={() => !this.state.eatEvent &&
               this.setState({
                 hideOptions: true,
                 searchVal: ''
-              }) ||
-              HotKeys.nuke('asns')}
+              })}
           value={multi || !this.state.hideOptions ? this.state.searchVal : this.props.value}
           label={this.props.label}
           onChange={(e, val) => {
@@ -222,9 +211,9 @@ export default class TypeAhead extends React.Component{
               onSelect={(e, val) => {
                 this.ta.typeahead.focus();
                 this.setState({
-                  selected: _.uniq(this.state.selected.indexOf(val.value ? val.value : val) > -1 ?
+                  selected: [...new Set(this.state.selected.indexOf(val.value ? val.value : val) > -1 ?
                     this.state.selected.filter(v => v !== (val.value ? val.value : val)) :
-                    this.state.selected.concat([val.value ? val.value : val]))
+                    this.state.selected.concat([val.value ? val.value : val]))]
                 });
                 setTimeout(() =>
                   this.props.onSelect &&

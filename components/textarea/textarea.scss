@@ -1,0 +1,86 @@
+    .textarea-wrap {
+        min-height: 78px;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        label{
+            // text
+            font-family: "Montserrat";
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 14px; 
+            // box
+            width: 100%;  
+            padding: 0 0 4px 0;
+            margin: 0;
+            // misc
+            pointer-events: none;
+        }
+        textarea {
+            color: black;
+            resize: none;
+            width: 100%;
+            
+            // text
+            font-family: "Open Sans";
+            line-height: 16px;
+            font-size: 14px;
+            font-weight: 300;
+            // box
+            padding: 10px;
+            margin: 0;
+            // misc
+            @include themify($themes) {
+              border-color: themed('dotsHoverBackground');
+            }
+            border-width: 1px;
+            border-style: solid;
+            background-color: transparent;
+            &:required,
+            &:valid,
+            &:invalid {
+                box-shadow: none;
+            }
+        }
+        &.has-help{
+            .bar{
+                bottom: 18px;
+            }
+            margin-bottom: 10px;
+        }
+        textarea:focus~.help-text {
+            opacity: 1;
+        } 
+        .help-text {
+            @include help-text-base();
+        }
+        textarea:focus~label {
+            border-color: $ns1-magenta-primary;
+        }
+        // valid state
+        &.touched.valid:not(.hide-validation) {
+            .icon,
+            textarea:not(:focus),
+            textarea:not(:focus)~label {
+                color: $confirmgreen-status;
+            }
+            textarea:not(:focus) {
+                border-color: $confirmgreen-status;
+            }
+        }
+        &.touched.valid:not(.hide-validation) textarea:not(:focus)~.bar {
+            border-color: $confirmgreen-status;
+        }
+        // error state
+        &.touched.invalid:not(.hide-validation) {
+            .icon,
+            textarea:not(:focus),
+            textarea:not(:focus)~label {
+                color: $errorred-status;
+            }
+            textarea:not(:focus)~.bar,
+            textarea:not(:focus) {
+                border-color: $errorred-status;
+            }
+        }
+    }

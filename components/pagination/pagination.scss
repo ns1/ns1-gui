@@ -1,0 +1,76 @@
+.bunder-container {
+  .pagination {
+    flex: none;
+    .hide{
+      display: none!important;
+    }
+    @include themify($themes) {
+      color: themed('paginationText');
+    }
+    font-family: "Open Sans";
+    font-size: 14px;
+    user-select: none;
+
+    .first { margin-right: 17px; }
+    .last { margin-left: 17px; }
+    .ellipsis { margin-left: 0px; margin-right: 8px; }
+
+    .next, .prev, .items .item {
+      cursor: pointer;
+    }
+
+    .no {
+      cursor: not-allowed;
+    }
+
+    .next, .prev {
+      display: inline-block;
+      width: 20px;
+      height: 20px;
+      text-align: center;
+      &:hover:not(.no) {
+        color: $ns1-magenta-primary;
+        cursor: pointer;
+      }
+    }
+
+    .hide { display: none; }
+
+    .items {
+      span {
+        display: inline-block;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        margin-right: 3px;
+        &.item:not(.active):hover {
+          @include themify($themes) {
+            color: themed('paginationHoverText');
+          }
+          cursor: pointer;
+        }
+        &.active {
+          cursor: default;
+        }
+        &.active, &.item:hover {
+          @include themify($themes) {
+            background: themed('paginationActiveBackground');
+          }
+        }
+        &:before, &:after {
+          content:'\200B';
+          display:inline-block;
+          line-height:0px;
+          padding-top:50%;
+          padding-bottom:50%;
+        }
+        &.active {
+          @include themify($themes) {
+            color: themed('paginationActiveText');
+          }
+        }
+      }
+    }
+  }
+}

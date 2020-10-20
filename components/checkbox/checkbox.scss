@@ -1,0 +1,66 @@
+.bunder-container, .bunder-form {
+    .checkbox-label {
+      &.big > span {
+        font-family: Montserrat;
+        font-size: 14px;
+        line-height: 32px;
+        font-weight: 500 !important;
+      }
+      cursor: pointer;
+      position: relative;
+      margin-bottom: 12px;
+      &+.text-input{
+        margin-top: 8px;
+      }
+      &.no-gutter{
+        margin-bottom:0;
+      }
+      .icon {
+        position: absolute;
+        color: $strokegray-bs;
+        top: 0;
+        left: 0;
+        margin-top: 0;
+        text-align: left;
+        height: 100%;
+        &.checkbox:before{
+          color: $strokegray-bs;
+          content: $checkbox;
+          padding: 0px;
+          text-align: left;
+        }
+      }
+
+      &:hover .icon:before {
+        color: $mousegray-bs;
+        content: $checkedbox;
+      }
+
+      .icon.checkedbox:before{
+        border-radius: 4px;
+        content: $checkedbox;
+        color: $ns1-magenta-primary;
+        @include themify($themes) {
+          background: themed('inputCheckboxColor');
+        }
+        padding: 0px;
+        text-align: left;
+      }
+
+      input {
+        opacity: 0;
+        margin-right: 10px;
+        display: inline;
+      }
+      margin-right: 20px;
+      .help-text {
+          font-size: 11px;
+          // position: absolute;
+          // bottom: 0;
+          display: block;
+          width: 100%;
+          font-weight: 300;
+      }
+    }
+
+}

@@ -1,6 +1,7 @@
 import _ from 'lodash';
 import PropTypes from 'prop-types';
 import React from 'react';
+import './pagination.scss';
 
 export default class Pagination extends React.Component {
   static propTypes = {

@@ -1,0 +1,56 @@
+.bunder-container,
+.bunder-form {
+  .bunder-progress-bar {
+    display: flex;
+    flex-direction: row;
+    .progress-label, .percent-done {
+      display: flex;
+      align-items: center;
+      flex: 1;
+      vertical-align: middle;
+      overflow: hidden;
+    }
+    .percent-done {
+      flex: 1.2;
+      justify-content: flex-end;
+      white-space: nowrap;
+    }
+    .progress-label {
+      font-weight: bold;
+      font-family: "Montserrat";
+      justify-content: flex-start;
+      padding-right: 12px;
+    }
+    &.unavailable .bar .bar-part.completed,
+    &.unavailable .bar .bar-part.incomplete {
+      opacity: 0.05;
+    }
+    &.memory .bar .bar-part.completed {
+      background-color: $teal-secondary;
+    }
+    &.danger .bar .bar-part.completed {
+      background-color: $coral-secondary;
+    }
+    &.warning .bar .bar-part.completed {
+      background-color: $yellow-secondary;
+    }
+    .bar {
+      flex: 8 0;
+      display: flex;
+      border-left: 1px solid $strokegray-bs;
+      border-right: 1px solid $strokegray-bs;
+      padding: 15px 0 15px 0;
+      .bar-part {
+        display: inline-block;
+        height: 14px;
+        &.completed {
+          background-color: $blue-secondary;
+        }
+        &.incomplete {
+          background-color: $gunmetal-secondary;
+          opacity: 0.2;
+        }
+      }
+    }
+  }
+}

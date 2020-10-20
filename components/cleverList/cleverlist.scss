@@ -1,0 +1,84 @@
+.cleverlist{
+  &.draggable{
+    padding-top: 40px;
+    position: relative;
+    top: -40px; 
+    .item-row:active, .item-row .dragging{
+      border-bottom: 0px!important;
+      transform: scale(.85);
+      transition: all .2s ease-in-out;
+    };
+  }
+}
+.clever-list {
+  .options-menu .dots{
+    height: 22px;
+    width: 22px;
+    &:after{
+      font-size: 18px;
+      top: -3px;
+      left: 7px;
+    }
+  }
+  &.item-list {
+    &.virtual{
+      .dragging{
+        opacity: 0.5; 
+      }
+      .over{
+        position: relative;
+        &.bottom::after{
+          position: absolute; 
+          bottom: -2px;
+          left: 0;
+          content: ' ';
+          height: 1px;
+          width: 100%;
+          border: 1px dashed black;
+          z-index:1000;
+        }
+        &.top::before{
+          position: absolute; 
+          top: -2px;
+          left: 0px;
+          content: ' ';
+          height: 1px;
+          width: 100%;
+          border: 1px dashed black;
+          z-index: 1000;
+        }
+      }
+
+      .item-row{
+        // margin-bottom: 8px;
+        @include themify($themes) {
+          border-bottom: 8px solid themed('backgroundColor');
+        }
+      }
+      .hide{
+        opacity: 0;
+      }
+    }
+    .clever-opt-wrap{
+      position: relative;
+    }
+    .item-row {
+      h4 .subnet-desc {
+        font-weight: normal;
+        overflow: hidden;
+      }
+      min-height: 48px;
+      &.selected{
+        @include themify($themes) {
+          background: themed('selectedItemBackground');
+          color: themed('selectedItemText');
+        }
+      }
+      // this may need to actually be done by removing the position chicanery in pills.scss
+      .pill {
+        position: relative !important;
+        left: initial !important;
+      }
+    }
+  }
+}

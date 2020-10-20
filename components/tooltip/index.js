@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import './tooltip.scss';
 
 export default class Tooltip extends React.Component{
   static propTypes = {

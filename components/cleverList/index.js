@@ -6,6 +6,7 @@ import {VariableSizeList as List} from 'react-window';
 import {WindowScroller} from 'react-virtualized/dist/commonjs/WindowScroller';
 import HotKeys from '../../lib/hotkeys.js';
 import _ from 'lodash';
+import './cleverlist.scss';
 
 export default class CleverList extends React.Component{
   static propTypes = {

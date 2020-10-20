@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import _hotKeys from '../../lib/hotkeys.js';
+import './notifications.scss';
 
 class Notification extends React.Component {
   static propTypes = {
@@ -13,15 +13,9 @@ class Notification extends React.Component {
     wait: PropTypes.bool
   };
   componentDidMount() {
-    this.HotKeys = new _hotKeys();
-    this.HotKeys.register(['Escape'], 'notification', this.props.close, false, false, 'Clear current global notification.');
-    this.HotKeys.register(['Enter'], 'notification', this.props.close, 'Clear current global notification.');
     if (!this.props.wait){
       setTimeout(this.props.close, 3000);
     }
-  }
-  componentWillUnmount() {
-    this.HotKeys.nuke('notify');
   }
   render() {
     const {icon, className, message, close} = this.props;

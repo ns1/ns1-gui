@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import './formTabs.scss';
 export class FormTabs extends React.Component{
   static propTypes = {
     headerLabel: PropTypes.string,

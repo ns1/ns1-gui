@@ -1,0 +1,41 @@
+.typeahead{
+  margin-bottom: 0px!important;
+  &.grow{
+    flex: 1.5 0 0;
+  }
+  .text-input{
+    margin-right: 40px;
+  }
+  .selected{
+    min-height: 32px;
+    padding: 6px;
+    .icon.closex{
+      padding: 0;
+      &:before{
+        padding: 0px 2px; 
+        font-size: 8px;
+        margin-left: 6px;
+        top:-2px;
+      }
+      &:hover{
+        &:before{
+          background-color: black;
+          border-radius: 10px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+  &.short{
+    .text-input{
+      max-height: 48px;
+    }
+  }
+  .relative{
+    position: relative;
+  }
+  .options, .dd-menu{
+    max-height: 60vh;
+    overflow-y: auto;
+  }
+}

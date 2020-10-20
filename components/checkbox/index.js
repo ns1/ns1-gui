@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import './checkbox.scss';
 export default class CheckBox extends React.Component{
   static propTypes = {
     /* eslint-disable react/no-deprecated */

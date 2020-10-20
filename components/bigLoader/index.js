@@ -1,5 +1,6 @@
 import React from 'react';
 import Loader from './loader';
+import './bigLoader.scss';
 export default class BigLoader extends React.Component{
   constructor(props){
     super(props);

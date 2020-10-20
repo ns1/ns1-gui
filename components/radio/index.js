@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
+import './radio.scss';
 
 export default class Radio extends React.Component{
   static propTypes = {

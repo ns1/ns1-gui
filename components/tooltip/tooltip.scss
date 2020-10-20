@@ -1,0 +1,174 @@
+@mixin tooltip(
+  $dir: top,                      // Tip direction
+  $pos: 50%,                      // Tip position
+  $color1: #fff,                  // Inner color
+  $color2: darken($color1, 30%),  // Border color
+  $size1: 6px,                    // Size (Y)
+  $size2: $size1                  // Size (X)
+) {
+  @include tip($dir, $pos, $color1, $color2, $size1, $size2);
+  margin-top: $size1;
+  @include themify($themes) {
+    background: themed('tooltipBackground');
+  }
+  position: absolute;
+  text-align: left;
+  @if $dir == top {
+    @include themify($themes) {
+      box-shadow: 0 -2px 5px 0 themed('tooltipShadow');
+    }
+  } @else if $dir == bottom {
+    @include themify($themes) {
+      box-shadow: 0 2px 5px 0 themed('tooltipShadow');
+    }
+  } @else if $dir == left {
+    @include themify($themes) {
+      box-shadow: 0 2px 5px 0 themed('tooltipShadow');
+    }
+  } @else if $dir == right {
+    @include themify($themes) {
+      box-shadow: 0 2px 5px 0 themed('tooltipShadow');
+    }
+  }
+  z-index: 9;
+}
+
+@function opposite-direction($directions) {
+  $opposite-directions: ();
+  $direction-map: (
+    'top':    'bottom',
+    'right':  'left',
+    'bottom': 'top',
+    'left':   'right',
+    'center': 'center',
+    'ltr':    'rtl',
+    'rtl':    'ltr'
+  );
+ 
+  @each $direction in $directions {
+    $direction: to-lower-case($direction);
+    
+    @if map-has-key($direction-map, $direction) { 
+      $opposite-directions: append($opposite-directions, unquote(map-get($direction-map, $direction)));
+    } @else {
+      @warn "No opposite direction can be found for `#{$direction}`. Direction omitted.";
+    }
+  }
+ 
+  @return $opposite-directions;
+}
+
+@mixin tip(
+  $dir: top,
+  $pos: 50%,
+  $color1: #fff,
+  $color2: darken($color1, 30%),
+  $size1: 6px,
+  $size2: $size1
+) {
+  $opos: opposite-position($dir);
+  $transparent: if($dir == left or $dir == right, (top, bottom), (left, right));
+  &.top:after, &.bottom:after {
+    @include themify($themes) {
+      box-shadow: -2px 2px 2px 0 themed('tooltipShadow');
+    }
+    left: 10%;
+  }
+  &.top:after {
+    bottom: -.6em;
+    transform: rotate(-45deg);
+  }
+  &.bottom:after {
+    top: -0.0em;
+    transform: rotate(135deg);
+  }
+  &.right:after, &.left:after {
+    @include themify($themes) {
+      box-shadow: -2px 2px 2px 0 themed('tooltipShadow');
+    }
+  }
+  &.right:after {
+    left: -0.0em;
+    top: 40%;
+    transform: rotate(45deg);
+  }
+  &.left:after {
+    right: -0.5em;
+    top: 60%;
+    transform: rotate(-135deg);
+  }
+  &:after {
+    content: "";
+    position: absolute;
+    box-sizing: border-box;
+    border: .3em solid;
+    @include themify($themes) {
+      border-color: transparent transparent themed('tooltipBackground') themed('tooltipBackground');
+    }
+    transform-origin: 0 0;
+  }
+}
+
+.bunder-container {
+  .pill .tooltip-wrapper{
+    .top{
+      left: -30px;
+      text-transform: none;
+    }
+  }
+  .tooltip-wrapper {
+    @include themify($themes) {
+      color: themed('tooltipText');
+    }
+    font-family: "Open Sans";
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 16px;
+    position: relative;
+    display: inline-block;
+    &.hide{
+      .tip *{
+        opacity: 0;
+        display:none!important;
+      }
+    }
+    .tip {
+      // Put the tip on the bottom, 30% from left edge.
+      // Position the tooltip.
+      &.top {
+        @include tooltip(bottom, 10%);
+        bottom: 100%;
+      }
+      &.bottom {
+        @include tooltip(top, 10%);
+        bottom: -100%;
+      }
+      &.left {
+        @include tooltip(left, 10%);
+        transform: translate3d(-108%, -42%, 0);
+        left: 0%;
+      }
+      &.right {
+        @include tooltip(right, 10%);
+      }
+      width: 200px;
+      margin: 10px;
+      padding: 10px;
+      transition: opacity .3s;
+      visibility: hidden;
+      opacity: 0;
+    }
+    &:hover:not(.hide) {
+      .tip {
+        opacity: 1;
+        visibility: visible;
+      }
+    }
+  }
+}
+
+.recharts-default-tooltip {
+  @include themify($themes) {
+    background: themed('graphTooltipBackground') !important;
+  }
+}

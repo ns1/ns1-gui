@@ -1,0 +1,186 @@
+@import './themes';
+
+button:not(.react-datepicker__navigation).primary:not(.short).inline.primary.new {
+      font-size: 35px !important;
+      border-radius: 4px !important;
+      padding: 9px 6px !important;
+  }
+
+// .flex-wrap > .button{
+//     margin-left: 0px!important;
+//     margin-right: 0px!important;
+// }
+.button:not(.dd-button),button:not(.arrow-nav):not(.dd-button):not(.rheostat-handle):not(.react-datepicker__navigation):not(.notifybutton){
+    &:focus{
+       border-style: dashed!important;
+    }
+    .icon:not(.spinner)::before {
+        font-size: 120%;
+    }
+    &:disabled {
+        opacity: .5;
+    }
+    &:hover:not(:disabled) {
+        border-color: $ns1-magenta-primary;
+        text-decoration: none;
+    }
+    &.primary,
+    &.success {
+        @include themify($themes) {
+          color: themed('primaryButtonText');
+          background: themed('primaryButtonBackground');
+          border-color: themed('primaryButtonBorder');
+        }
+        &:not(.short){
+            font-size: 20px;
+            margin-top: 14px;
+        }
+        &:hover:not(:disabled) {
+            // background-color: $darkmagenta-primary;
+            // border-color: $darkmagenta-primary;
+            @include themify($themes) {
+              background: themed('primaryButtonHoverBackground');
+              border-color: themed('primaryButtonHoverBorder');
+            }
+        }
+        &:focus:not(:disabled) {
+            background-color: $darkmagenta-primary;
+            border-color: $darkmagenta-primary;
+        }
+    }
+    .icon.spinner:before {
+        font-size: 20px;
+        line-height: 14px;
+    }
+    &.secondary,
+    &.danger {
+        &:hover:not(:disabled) {
+            @include themify($themes) {
+              color: themed('secondaryButtonHoverText');
+              background: themed('secondaryButtonHoverBackground');
+            }
+        }
+        @include themify($themes) {
+          color: themed('secondaryButtonText');
+          background: themed('secondaryButtonBackground');
+          border-color: themed('secondaryButtonBorder');
+        }
+    }
+
+    &.transparent {
+        border: 1px solid $ns1-magenta-primary;
+        background-color: transparent;
+        @include themify($themes) {
+          color: themed('secondaryButtonColor');
+          background: themed('transparentSecondaryButton');
+        }
+    }
+
+    &.tertiary {
+        @include themify($themes) {
+          color: themed('tertiaryButtonText');
+          background: themed('tertiaryButtonBackground');
+          border-color: themed('tertiaryButtonBorderColor');
+        }
+        &:hover {
+          @include themify($themes) {
+            color: themed('tertiaryButtonHoverText');
+            background: themed('tertiaryButtonHoverBackground');
+          }
+        }
+    }
+
+    &.disabled {
+        opacity: 0.3;
+    }
+
+    &.small {
+        font-size: 14px;
+        font-weight: normal;
+    }
+    &.short {
+        padding: 4px 12px; 
+        margin-top: 0;
+        margin-bottom: 0;
+        .loader{
+            span.loader-dot{
+                line-height: 0px;
+            }
+        }
+        .icon{
+            &:before{
+                font-size: 12px;
+            }
+        }
+    }
+    &.shrink-margins{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+    &.no-margins{
+        margin-top:0px;
+        margin-bottom: 0px;
+    }
+    &.inline {
+        width: auto;
+        display: inline-block;
+        &:not(.gutter-top){
+            margin-top: 0px!important;
+        }
+        &:not(.gutter-bottom){
+            margin-bottom: 0px!important
+        }
+        &.wider {
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+    }
+    &.leftgutter {
+        margin-left: 20px!important;
+    }
+    &.rightgutter {
+        margin-right: 20px!important;
+    }
+
+    width: 100%;
+    color: $ns1-magenta-primary;
+    font-family: Montserrat;
+    font-size: 14px;
+    font-weight: normal;
+    line-height: 14px;
+    text-align: center;
+    display: inline-block;
+    margin: 20px inherit 10px inherit;
+    padding: 12px;
+    border: 1px solid $ccc-border;
+    border-radius: 2px;
+    cursor: pointer;
+    transition: background-color border-color color;
+    transition-duration: 0.2s;
+    text-decoration: none;
+    &.smaller {
+        padding: 6px 12px;
+    }
+}
+h4+.button-group, h5+.button-group{
+    margin-left: 10px;
+}
+button.dd-button:focus{
+  @include themify($themes) {
+    color: black !important; // TODO darkmode
+    background: white !important; // TODO darkmode
+  }
+}
+.button-group{
+    padding-bottom: 12px;
+    label{
+        font-weight: bold!important;
+        padding-right: 10px;
+    }
+    button:first-of-type{
+        border-radius: 2px 0px 0px 2px!important;
+    }
+    button:last-of-type{
+        border-radius: 0px 2px 2px 0px!important;
+    }
+}

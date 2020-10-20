@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import _ from 'lodash';
 import Tooltip from './tooltip';
 
 export default class Toggle extends React.Component{
@@ -23,8 +22,9 @@ export default class Toggle extends React.Component{
 
     // unsure if using state for this is ok? i needed a
     // uniqueId mostly for htmlFor label reasons
+    const id = Math.random
     this.state = {
-      id: _.uniqueId('toggle-')
+      id: `toggle-${(""+Math.random()).substring(2,7)}`
     };
   }
   render() {
