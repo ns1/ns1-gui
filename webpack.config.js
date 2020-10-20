@@ -95,6 +95,24 @@ let config = {
           path.resolve(__dirname, 'components')
         ]
       },
+      {
+        test: /\.css$/i,
+        sideEffects: true,
+        loaders: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              url: false
+            }
+          }
+        ],
+        exclude: /node_modules/,
+        include: [
+          path.resolve(__dirname, 'scss'),
+          path.resolve(__dirname, 'components')
+        ]
+      },
       {test: /\.(woff|woff2|eot|ttf)$/, loader: 'file-loader'},
       {
         test: /\.(jpg|png|gif|jpeg)$/,
