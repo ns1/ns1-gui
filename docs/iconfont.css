@@ -280,11 +280,11 @@
 
             @font-face {
             font-family: "icons";
-            src: url("/built/static/eot");
-            src: url("/built/static/iconfont.eot?#iefix") format("embedded-opentype"),
-                 url("/built/static/iconfont.woff") format("woff"),
-                 url("/built/static/iconfont.ttf") format("truetype"),
-                 url("/built/static/iconfont.svg#iconfont") format("svg");
+            src: url("/eot");
+            src: url("/iconfont.eot?#iefix") format("embedded-opentype"),
+                 url("/iconfont.woff") format("woff"),
+                 url("/iconfont.ttf") format("truetype"),
+                 url("/iconfont.svg#iconfont") format("svg");
             font-weight: normal;
             font-style: normal;
           }

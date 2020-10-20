@@ -10,7 +10,7 @@ let EditFontPlugin = function(){};
 EditFontPlugin.prototype.apply = (compiler) => {
   compiler.plugin('emit', (compiler, callback) => {
     var buffer = fs
-      .readFileSync('./built/static/iconfont.woff');
+      .readFileSync('./docs/iconfont.woff');
 
     var font = Font.create(buffer, {
       type: 'woff',
@@ -32,7 +32,7 @@ EditFontPlugin.prototype.apply = (compiler) => {
 
     setTimeout(() => {
       fs.writeFileSync(
-        './built/static/iconfont.woff', newBuff);
+        './docs/iconfont.woff', newBuff);
     }, 1000);
     callback();
   });

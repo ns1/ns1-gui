@@ -10,7 +10,7 @@ const devPort = 8500;
 console.log('isProd: ', isProd);
 
 const url = (suffix) => {
-  return `/built/static/${suffix}`;
+  return `/${suffix}`;
 };
 
 let ico = () => {
@@ -18,8 +18,8 @@ let ico = () => {
       src: `${__dirname}/assets/svg`,
       family: 'iconfont',
       dest: {
-        font: `${__dirname}/built/static/[family].[type]`,
-        css: `${__dirname}/built/static/[family].css`
+        font: `${__dirname}/docs/[family].[type]`,
+        css: `${__dirname}/docs/[family].css`
       },
       watch: {
         pattern: `${__dirname}/assets/svg/**/*.svg`,
@@ -80,7 +80,7 @@ let config = {
     moduleExtensions: ['-compat']
   },
   output: {
-    path: `${__dirname}/built/static`,
+    path: `${__dirname}/docs`,
     filename: 'bundle.js',
     library: 'gui'
   },
@@ -144,7 +144,7 @@ let config = {
 };
 if (!isProd){
   config.devServer = {
-    contentBase: './',
+    contentBase: ['./', './docs'],
     compress: true,
     port: devPort,
     public: `localhost:${devPort}`,

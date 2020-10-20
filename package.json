@@ -5,8 +5,8 @@
   "main": "demo.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "watch": "rm -rf ./built && mkdir ./built && NODE_PATH=./built/js/ node utils/buildIconSass && node_modules/.bin/webpack-dev-server --inline --hot",
-    "build": "rm -rf ./built && mkdir ./built && NODE_PATH=./built/js/ node utils/buildIconSass && NODE_ENV=production node_modules/.bin/webpack && cp index.html built/static/index.html"
+    "watch": "rm -rf ./docs && mkdir ./docs && node utils/buildIconSass && node_modules/.bin/webpack-dev-server --inline --hot",
+    "build": "rm -rf ./docs && mkdir ./docs && node utils/buildIconSass && NODE_ENV=production node_modules/.bin/webpack && cp index.html docs/index.html"
   },
   "author": "Jordan Byrd",
   "license": "ISC",
