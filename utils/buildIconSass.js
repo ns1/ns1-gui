@@ -6,7 +6,7 @@ const files = fs.readdirSync('./assets/svg')
     f.split('.svg')[0]);
 
 fs
-  .writeFileSync(`./scss/icons.scss`,
+  .writeFileSync(`./scss/icons.css`,
     files
       .filter(f=>f)
       .filter(f=>f[0]!=='.')
