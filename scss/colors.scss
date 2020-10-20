@@ -1,0 +1,188 @@
+// mnemonic: color name from comp-tier-colorscheme
+// goes from most specific on left, to least-specific on right
+// dash delineates category, so two worded colors don't have a dash
+
+
+// wait, most of these are the same
+// not sure how useful the mnemonic will be, but it will be useful
+// when we allow color scheme switching?
+
+// moved from manifest.scss
+$brand-green: #51CCB8;
+$brand-deeper-green: #10CB6A;
+$brand-red: #E65E5E;
+$brand-blue: #6CA3D9;
+
+// light color scheme
+  //lightprimary
+  $body-bg: #F2F5F6 !global;
+  $body-bg-dark: #0f1114 !global;
+  $black-primary-light: #15181d !global;
+  $mediumgray-primary-light: #3c4a54 !global;
+// darkmode
+  //darkprimary 
+  $white-primary-dark: #fff !global;
+  $mediumgray-primary-dark: #4c5966 !global;
+
+// shared primary colors:
+$ns1-magenta-primary: #ed1670 !global;
+$darkmagenta-primary: #a51250 !global;
+$darkgray-primary: #121619 !global;
+
+// light indicators
+$errorred-status: #E52239 !global;
+$confirmgreen-status: #10cb6a !global;
+$warningyellow-status: #F2AB30 !global;
+
+// background and stroke 
+$superlight-bs: #F2F5F6 !global;
+$lightgray-bs: #e8ebed !global;
+$mousegray-bs: #d5d8db !global;
+$coolgray-bs: #cbd2d9 !global;
+$strokegray-bs: #adb0b3 !global;
+
+// secondary colors
+$gunmetal-secondary: #555b6e !global;
+$coral-secondary: #ff837a !global;
+
+$mint-secondary: #c6d8d3 !global;
+$teal-secondary: #00ccbb !global;
+$blue-secondary: #6ca3d9 !global;
+$yellow-secondary: #F2B830 !global;
+$purple-secondary: #9013FE !global;
+
+// form colors
+$form-background: #f3f5f6 !global;
+$form-container: #fff !global;
+
+// modal colors
+$modal-background: #f3f5f6 !global;
+$modal-backdrop: #000 !global;
+$modal-backdrop-opacity: 0.7 !global;
+
+// tab colors
+$tab-background: #fff !global;
+$tab-text: #000 !global;
+$tab-active-background: #000 !global;
+$tab-active-text: #fff !global;
+$tab-hover-background: #D5D8DB !global;
+$tab-hover-text: #ED1670 !global;
+
+// notification colors
+$notification-button-border: #ccc !global;
+$notification-button-text: #000 !global;
+
+// misc
+$dedicated-color: #9014C6!global;
+$dedicated-stacked-color: #C9A0F3!global;
+$managed-color: #6CA3D9!global;
+
+// pill specific
+$pill-back-gray: #d8dfe6!global;
+
+// Used an eyedropper for this as the shadow calc in invision differs from
+// the browser
+$toggler-inset-shadow: #CA3572 !global;
+
+// graph extended
+$graph-extended: (
+  graph-1: $gunmetal-secondary,
+  graph-2: #4c92d7,
+  graph-3: #52cecd,
+  graph-4: #7cea9c,
+  graph-5: #c3ec7f,
+  graph-6: #f0fe70,
+  graph-7: #fecc9e,
+  graph-8: #ff6a59,
+  graph-9: #b35dc4,
+  graph-10: $gunmetal-secondary,
+  graph-11: #4c92d7,
+  graph-12: #8b80ed,
+  graph-13: #66e1ff,
+  graph-14: #0ecc5b,
+  graph-15: #c4d5e4,
+  graph-16: #a9a09f,
+)!global;
+
+// filter chain
+$pipe-color: #ED1670;
+$pipe-bottom-color: $pipe-color;
+$category-header-color: #00CCBB;
+
+// record page
+$answer_row_meta_open_border_color: #ddd;
+
+// generic color listings
+
+// LIGHT
+$blue-1: #6c757d;
+$pink-1: #ed1171;
+$white-text: #fff;
+$white-background: #fff;
+$white-border: #fff;
+
+$black-text: #000;
+$black-background: #000;
+$black-border: #000;
+$black-stroke: #000;
+
+$ccc-text: #ccc;
+$ccc-background: #ccc;
+$ccc-border: #ccc;
+$ccc-shadow: #ccc;
+
+$gray20-text: #333;
+$gray20-background: #333;
+$gray20-border: #333;
+
+$pink1-text: #E6126B;
+$pink1-border: #E6126B;
+$pink1-background: #E6126B;
+
+// light
+$input-color: #000;
+$topnav-background: #000;
+$topnav-border: $gunmetal-secondary;
+
+// dark
+$topnav-dark-background: #15181d;
+$topnav-dark-border: #0F1114;
+$super-dark-container-gray: #15181d;
+$dark-gray-row-mouseover: #3D434D;
+$dark-input-color: #EEEEEE;
+$header-nav-hover: #0F1114;
+$header-nav-active: #000000;
+
+// light palette
+$gunmetal: #555B6E;
+$coral: #F95F53;
+$teal: #1FA691;
+$blue: #4279AD;
+$violet: #9142D6;
+$error-red: #EC0D26;
+$confirm-green: #00AD4D;
+$warning-yellow: #FFB624;
+$super-light-gray: #F7F9FA;
+$light-gray: #E8EBED;
+$medium-gray: #D5D8DB;
+$cool-gray: #CBD2D9;
+$gray: #ADB0B3;
+
+$light-dd-text: #000;
+
+// dark palette
+$gunmetal: #555B6E;
+$coral: #F95F53;
+$teal: #1FA691;
+$blue: #4279AD;
+$violet: #9142D6;
+$error-red: #EC0D26;
+$confirm-green: #00AD4D;
+$warning-yellow: #FFB624;
+$super-dark-gray: #15181D;
+$dark-gray: #3D434D;
+$medium-cool-gray: #666C78;
+$gray: #ADB0B3;
+
+$dark-dd-text: #D8DFE6;
+$dark-dd-background-hover: #3D434D;

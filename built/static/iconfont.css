@@ -1,0 +1,308 @@
+.icon.add:before{
+            content: '';
+          }
+.icon.addcard:before{
+            content: '';
+          }
+.icon.alert:before{
+            content: '';
+          }
+.icon.api:before{
+            content: '';
+          }
+.icon.arrows:before{
+            content: '';
+          }
+.icon.barChart:before{
+            content: '';
+          }
+.icon.bell-outline:before{
+            content: '';
+          }
+.icon.bell:before{
+            content: '';
+          }
+.icon.blocked:before{
+            content: '';
+          }
+.icon.calendar:before{
+            content: '';
+          }
+.icon.check:before{
+            content: '';
+          }
+.icon.checkbox:before{
+            content: '';
+          }
+.icon.checkedbox:before{
+            content: '';
+          }
+.icon.chevron_d:before{
+            content: '';
+          }
+.icon.chevron_fl:before{
+            content: '';
+          }
+.icon.chevron_fr:before{
+            content: '';
+          }
+.icon.chevron_l:before{
+            content: '';
+          }
+.icon.chevron_r:before{
+            content: '';
+          }
+.icon.chevron_u:before{
+            content: '';
+          }
+.icon.clone:before{
+            content: '';
+          }
+.icon.closex:before{
+            content: '';
+          }
+.icon.code:before{
+            content: '';
+          }
+.icon.confirmed:before{
+            content: '';
+          }
+.icon.connection:before{
+            content: '';
+          }
+.icon.creditcard:before{
+            content: '';
+          }
+.icon.custom-settings:before{
+            content: '';
+          }
+.icon.data:before{
+            content: '';
+          }
+.icon.dedicated_nav:before{
+            content: '';
+          }
+.icon.dedicateddns:before{
+            content: '';
+          }
+.icon.document:before{
+            content: '';
+          }
+.icon.download:before{
+            content: '';
+          }
+.icon.draghandle:before{
+            content: '';
+          }
+.icon.edit:before{
+            content: '';
+          }
+.icon.email:before{
+            content: '';
+          }
+.icon.emptycircle:before{
+            content: '';
+          }
+.icon.filledcircle:before{
+            content: '';
+          }
+.icon.filter-mini:before{
+            content: '';
+          }
+.icon.filterchain:before{
+            content: '';
+          }
+.icon.folder:before{
+            content: '';
+          }
+.icon.gear-stroked:before{
+            content: '';
+          }
+.icon.geo-graph:before{
+            content: '';
+          }
+.icon.geolocation:before{
+            content: '';
+          }
+.icon.help:before{
+            content: '';
+          }
+.icon.hide:before{
+            content: '';
+          }
+.icon.history:before{
+            content: '';
+          }
+.icon.host:before{
+            content: '';
+          }
+.icon.id:before{
+            content: '';
+          }
+.icon.identity:before{
+            content: '';
+          }
+.icon.info:before{
+            content: '';
+          }
+.icon.integrations:before{
+            content: '';
+          }
+.icon.integrations_nav:before{
+            content: '';
+          }
+.icon.interface:before{
+            content: '';
+          }
+.icon.line-graph:before{
+            content: '';
+          }
+.icon.link:before{
+            content: '';
+          }
+.icon.lock:before{
+            content: '';
+          }
+.icon.medical:before{
+            content: '';
+          }
+.icon.megaphone:before{
+            content: '';
+          }
+.icon.menu:before{
+            content: '';
+          }
+.icon.monitor:before{
+            content: '';
+          }
+.icon.monitors_nav:before{
+            content: '';
+          }
+.icon.newtab:before{
+            content: '';
+          }
+.icon.note:before{
+            content: '';
+          }
+.icon.pausecircle:before{
+            content: '';
+          }
+.icon.playcircle:before{
+            content: '';
+          }
+.icon.plug:before{
+            content: '';
+          }
+.icon.pulsar:before{
+            content: '';
+          }
+.icon.pulsar_nav:before{
+            content: '';
+          }
+.icon.records:before{
+            content: '';
+          }
+.icon.search:before{
+            content: '';
+          }
+.icon.settings:before{
+            content: '';
+          }
+.icon.shield:before{
+            content: '';
+          }
+.icon.show:before{
+            content: '';
+          }
+.icon.slash:before{
+            content: '';
+          }
+.icon.slider_off:before{
+            content: '';
+          }
+.icon.slider_on:before{
+            content: '';
+          }
+.icon.spinner:before{
+            content: '';
+          }
+.icon.teams:before{
+            content: '';
+          }
+.icon.technology:before{
+            content: '';
+          }
+.icon.timeout:before{
+            content: '';
+          }
+.icon.timespan:before{
+            content: '';
+          }
+.icon.toolbox:before{
+            content: '';
+          }
+.icon.transfers:before{
+            content: '';
+          }
+.icon.trash:before{
+            content: '';
+          }
+.icon.triangle_d:before{
+            content: '';
+          }
+.icon.triangle_u:before{
+            content: '';
+          }
+.icon.unlocked:before{
+            content: '';
+          }
+.icon.updown:before{
+            content: '';
+          }
+.icon.usage:before{
+            content: '';
+          }
+.icon.user:before{
+            content: '';
+          }
+.icon.warning:before{
+            content: '';
+          }
+.icon.whats-this:before{
+            content: '';
+          }
+.icon.zones:before{
+            content: '';
+          }
+.icon.zones_nav:before{
+            content: '';
+          }
+
+            @font-face {
+            font-family: "icons";
+            src: url("/built/static/eot");
+            src: url("/built/static/iconfont.eot?#iefix") format("embedded-opentype"),
+                 url("/built/static/iconfont.woff") format("woff"),
+                 url("/built/static/iconfont.ttf") format("truetype"),
+                 url("/built/static/iconfont.svg#iconfont") format("svg");
+            font-weight: normal;
+            font-style: normal;
+          }
+          .icon::before{
+            vertical-align: middle;
+            font-family: "icons"!important;
+            display: inline-block;
+            font-style: normal;
+            font-weight: normal;
+            font-variant: normal;
+            padding: 0 4px;
+            line-height: 1;
+            font-size: 18px;
+            text-decoration: inherit;
+            text-rendering: optimizeLegibility;
+            text-transform: none;
+            -moz-osx-font-smoothing: grayscale;
+            -webkit-font-smoothing: antialiased;
+            font-smoothing: antialiased;
+          }
+        

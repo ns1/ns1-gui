@@ -1,0 +1,250 @@
+@mixin container-structure {
+  width: 98%;
+  margin: 0 auto;
+  max-width: 1280px;
+  padding: 0px 1%;
+}
+
+@mixin basic-notification {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  margin: 0 12px 24px 12px;
+  padding: 14px 12px;
+  font-size: 14px;
+  font-weight: 450;
+
+  .icon:first-child:before {
+    margin-right: 8px;
+    flex: 1 1;
+  }
+
+  .notification-body {
+    flex: 25 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    color: black;
+    a {
+      color: $pink1-background;
+    }
+
+    p {
+      margin-right: 10px;
+    }
+
+    button:not(.icon) {
+      align-self: flex-end;
+      background: none;
+      border-radius: 2px;
+      font-family: Montserrat;
+      font-size: 11px;
+      font-weight: 600;
+      padding: 3px 18px;
+      margin-left: auto;
+      margin-right: 0;
+      display: inline-block;
+    }
+  }
+
+  button.icon {
+    border: 0;
+    background: 0;
+    align-self: flex-end;
+    text-align: right;
+    flex: 1 1;
+  }
+}
+
+@mixin options-menu() {
+  .options-menu {
+    position: relative;
+    .wrap {
+      width: max-content;
+    }
+    &.small{
+      &.opt-wrap{
+        height: 28px;
+      }
+      .dots{
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+        line-height: 28px;
+        vertical-align: middle;
+        &:after {
+          top: 2px;
+          left: 8px;
+          font-size: 20px;
+          line-height: 28px;
+          vertical-align: middle;
+          text-align: center;
+        }
+      }
+    }
+    .dots {
+      cursor: pointer;
+      width: 34px;
+      height: 34px;
+      position: relative;
+      &:after {
+        position: absolute;
+        top: 0px;
+        left: 11px;
+        content: '⋮';
+        font-size: 24px;
+        font-weight: bolder;
+        text-align: center;
+        @include themify($themes) {
+          color: themed('dotsText');
+        }
+      }
+      &:hover, &.opened {
+        border-radius: 50%;
+        -webkit-transform: scale(.9);
+        transform: scale(.9);
+        @include themify($themes) {
+          background: themed('dotsHoverBackground');
+        }
+      }
+      &:hover::after, &.opened::after {
+        color: $tab-hover-text;
+      }
+      &:active, &.opened {
+        @include themify($themes) {
+          box-shadow: themed('dotsActiveShadow');
+        }
+      }
+    }
+
+    a {
+      text-decoration: none;
+      @include themify($themes) {
+        color: themed('ddMenuText');
+      }
+
+      &:hover {
+        @include themify($themes) {
+          color: themed('ddMenuHoverText');
+        }
+      }
+    }
+
+    .dd-menu {
+      display: none;
+
+      &.opened {
+        display: block;
+      }
+    }
+
+    .dd-menu {
+      @include themify($themes) {
+        box-shadow: themed('ddMenuButtonBoxShadow');
+        border: themed('ddMenuButtonBorder');
+        background: themed('ddMenuBackground');
+      }
+      border: 0;
+      list-style-type: none;
+      margin: -10px -29px 0 0;
+      padding: 0;
+      position: absolute;
+      right: 100%;
+      width: fit-content;
+      z-index: 1;
+
+      li {
+        &.disabled {
+          pointer-events: none;
+          opacity: 0.3;
+        }
+
+        padding: 7px 14px;
+        cursor: pointer;
+        white-space: nowrap;
+        font-weight: 500;
+
+        span.icon {
+          margin-left: -5px;
+          margin-right: 5px;
+        }
+
+        &:hover {
+          @include themify($themes) {
+            color: themed('ddMenuHoverText');
+            background: themed('ddMenuHoverBackground');
+          }
+        }
+      }
+    }
+  }
+}
+
+@mixin data-toggle {
+  display: flex;
+  list-style: none;
+  li.label, li.label span{
+    font-size: 9px;
+    color: $mediumgray-primary-light;
+    line-height: 9px;
+    font-weight: 700;
+  }
+  li.label{
+    padding-right: 10px;
+  }
+  li:not(.label) {
+    &.managed::before {
+      background-color: $managed-color;
+    }
+
+    &.dedicated::before {
+      background-color: $dedicated-color;
+    }
+
+    &:hover {
+      border-color: $black-border;
+    }
+
+    &:not(.no-ball)::before {
+      content: '  ';
+      border-radius: 100%;
+      background-color: #FF0000;
+      border: 1px solid $tab-hover-background;
+      width: 12px;
+      height: 12px;
+      display: inline-block;
+      margin-right: 4px;
+      margin-bottom: -2px;
+    }
+
+    &.no-ball .icon.filledcircle::before {
+      display: inline-block;
+      padding: 0;
+      margin: 0 5px 1px -1px;
+      font-size: 13px;
+      // Use this to inherit the main element text-color.
+      // If it's set using inline styles in React, then we can
+      // support dynamic colors in this manner
+      color: inherit;
+    }
+
+    &.disabled {
+      opacity: 0.5;
+    }
+
+    transition: border 0.2s;
+    cursor: pointer;
+    border-radius: 14px;
+    font-weight: bold;
+    font-family: 'Open Sans';
+    font-size: 8pt;
+    padding: 4px 8px;
+    margin: 3px;
+    border: 1px solid $tab-hover-background;
+    white-space: nowrap;
+    @include themify($themes) {
+      background: themed('containerBackground');
+    }
+  }
+
+}

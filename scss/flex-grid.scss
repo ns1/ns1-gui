@@ -1,0 +1,256 @@
+.bunder-container, .bunder-form, .bunder-wrapper {
+    //todo sync up these values, responsive breakdowns, etc
+    .flex {
+      display: flex;
+      &.spaced {
+        justify-content: space-between;
+      }
+      &.end {
+        justify-content: end;
+      }
+    }
+    .flex-wrap {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        flex-wrap: nowrap;
+        align-items: flex-start;
+        &.column{
+            flex-direction: column;
+            .flex-whole{
+                flex: 1;
+            }
+        }
+        &.wrap{
+            flex-wrap: wrap;
+        }
+        .pull-right{
+          display: flex;
+          justify-self: right;
+          justify-content: right;
+          justify-items: right;
+          flex: 1;
+        }
+        &.stack-center{
+            justify-content: center; 
+        }
+        &.stack-right, .stack-right{
+            justify-content: flex-end;
+            display: flex;
+        }
+        &.stack-left{
+            justify-content: left;
+            justify-items: left;
+            justify-content: left;
+            *{
+                width: auto;
+            }
+        }
+        &.auto{
+            width: auto;
+        }
+        &.columns{
+            flex-direction: column;
+            justify-items: stretch;
+        }
+
+        .sticky{
+          position: sticky;
+          top: 20px;
+        }
+    }
+
+    .padtop{
+        padding-top: 20px;
+    }
+    .stretch{
+        align-self: stretch;
+        &.around{
+            justify-content: space-around;
+        }
+    }
+    // actual column widths
+    .flex-half{
+        max-width: 50%;
+    }
+    .flex-small-half{
+        width: 40%;
+    }
+    .flex-big-half{
+        width: 60%;
+    }
+    .flex-10{
+        min-width: 10%;
+        max-width: 10%;
+    }
+    .flex-20{
+        min-width: 20%;
+    }
+    .flex-30{
+        min-width: 30%;
+    }
+    .flex-40{
+        min-width: 40%;
+    }
+    .flex-50{
+        min-width: 50%;
+    }
+    .flex-60{
+        min-width: 60%;
+    }
+    .flex-70{
+        min-width: 70%;
+    }
+    .flex-80{
+        min-width: 80%;
+    }
+    .flex-90{
+        min-width: 90%;
+    }
+    .flex-three-quarter{
+        min-width: 75%;
+    }
+    .flex-eighth {
+        max-width: 12.5%;
+    }
+    .flex-quarter{
+        max-width: 25%;
+    }
+    .flex-third {
+        max-width: 33%;
+        flex: 1 0 0;
+        -webkit-flex: 1 0 0;
+    }
+    .flex-two-third {
+        max-width: 66%;
+        flex: 2 0 0;
+        -webkit-flex: 2 0 0;
+    }
+    .flex-whole{
+        min-width: 100%;
+    }
+    .flex-whole,
+    .flex-half,
+    .flex-quarter {
+        flex: 1 0 0;
+        -webkit-flex: 1 0 0;
+    }
+    .flex-three-quarter{
+       flex: 3 0 0; 
+    }
+
+    .flex-icon {
+        flex: 0;
+    }
+    .flex-shrink {
+        flex: 0 0.8;
+    }
+
+    // misc or utility classes
+    .no-wrap {
+        white-space: nowrap;
+        flex-wrap: nowrap!important;
+        .flex-third, .flex-two-third, .flex-quarter {
+            min-width: inherit;
+        }
+    }
+    .vert-middle{
+        align-items: center;
+    } 
+    .vert-top{
+        align-items: flex-start;
+    }
+    .vert-bottom{
+        align-items: flex-end;
+    }
+    .squish{
+        align-items: center;
+        align-content: space-evenly;
+    }
+    .self-center{
+        align-self: center;
+    }
+    .one{
+        flex: 1 0 0;
+    }
+    .text-right{
+        text-align: right;
+    }
+    // padding and margin 
+    .pad-right {
+        padding-right: 20px;
+    }
+    .pad-left {
+        padding-left: 20px;
+    }
+    .right{
+        justify-self: right;
+    }
+    .pad-header{
+        padding-top: 58px;
+    }
+    // todo: organize these
+    .gutter-left{
+      margin-left: 10px!important;
+    }
+    .gutter-right{
+      margin-right: 10px!important;
+    }
+    .gutter-bottom{
+      margin-bottom: 10px!important;
+    }
+    .gutter-top{
+      margin-top: 10px!important;
+    }
+    .padding-top{
+      padding-top: 10px!important;
+    }
+    .padding-bottom{
+      padding-bottom: 10px!important;
+    }
+    .gutter-bottom-big{
+      margin-bottom: 24px!important;
+    }
+    .full-width{
+      width: 100%;
+    }
+
+}
+
+@media screen and (max-width: $breakdownwidth) {
+    .bunder-container{
+        .flex-wrap.responsive {
+            flex-wrap: wrap;
+            &>.flex-third,
+            &>.flex-two-third,
+            &>.flex-half,
+            &>.flex-whole {
+                min-width: 100%;
+                margin-right: 0;
+                flex: 1 0 100%;
+            }
+            &>.flex-quarter {
+                min-width: 50%;
+            }
+            .pad-left, .pad-right, .gutter-right, .gutter-left{
+                padding-left: 0px!important;
+                padding-right: 0px!important;
+                margin-left: 0px!important;
+                margin-right: 0px!important;
+            }
+        }
+    }
+    /*.flex-wrap {
+        flex-wrap: wrap;
+    }
+    .flex-third,
+    .flex-two-third,
+    .flex-whole {
+        min-width: 100%;
+        margin-right: 0;
+        flex: 1 0 100%;
+    }
+    .flex-quarter {
+        min-width: 50%;
+    }*/
+}

@@ -1,0 +1,351 @@
+@import '../../scss/themes.scss';
+@mixin help-text-base() {
+  &.truncate {
+    &:hover {
+      z-index: 100;
+      max-height: initial;
+      max-width: initial;
+      background-color: rgba(255, 255, 255, 0.95);
+      // give some bleed off on the opacity
+      padding-bottom: 4px;
+    }
+    max-height: 1.45em;
+    // only show one line by default
+    overflow: hidden;
+  }
+  font-size: 11px;
+  display: block;
+  opacity: 0;
+  transition: 0.2s ease all;
+  cursor: help;
+}
+
+.bunder-container,
+.bunder-form {
+    .textarea-wrap {
+        min-height: 78px;
+        display: flex;
+        flex-wrap: wrap;
+        position: relative;
+        label{
+            // text
+            font-family: "Montserrat";
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 14px; 
+            // box
+            width: 100%;  
+            padding: 0 0 4px 0;
+            margin: 0;
+            // misc
+            pointer-events: none;
+        }
+        textarea {
+            color: black;
+            resize: none;
+            width: 100%;
+            
+            // text
+            font-family: "Open Sans";
+            line-height: 16px;
+            font-size: 14px;
+            font-weight: 300;
+            // box
+            padding: 10px;
+            margin: 0;
+            // misc
+            @include themify($themes) {
+              border-color: themed('dotsHoverBackground');
+            }
+            border-width: 1px;
+            border-style: solid;
+            background-color: transparent;
+            &:required,
+            &:valid,
+            &:invalid {
+                box-shadow: none;
+            }
+        }
+        &.has-help{
+            .bar{
+                bottom: 18px;
+            }
+            margin-bottom: 10px;
+        }
+        textarea:focus~.help-text {
+            opacity: 1;
+        } 
+        .help-text {
+            @include help-text-base();
+        }
+        textarea:focus~label {
+            border-color: $ns1-magenta-primary;
+        }
+        // valid state
+        &.touched.valid:not(.hide-validation) {
+            .icon,
+            textarea:not(:focus),
+            textarea:not(:focus)~label {
+                color: $confirmgreen-status;
+            }
+            textarea:not(:focus) {
+                border-color: $confirmgreen-status;
+            }
+        }
+        &.touched.valid:not(.hide-validation) textarea:not(:focus)~.bar {
+            border-color: $confirmgreen-status;
+        }
+        // error state
+        &.touched.invalid:not(.hide-validation) {
+            .icon,
+            textarea:not(:focus),
+            textarea:not(:focus)~label {
+                color: $errorred-status;
+            }
+            textarea:not(:focus)~.bar,
+            textarea:not(:focus) {
+                border-color: $errorred-status;
+            }
+        }
+    }
+    .text-input {
+        // &+.text-input {
+        //     margin-top: 20px;
+        // }
+        min-height: 33px;
+        padding-top: 0px;
+        width: 100%;
+        position: relative; 
+        text-align: left;
+        clear: both;
+        &.disabled {
+            opacity: 0.5!important;
+            cursor: not-allowed!important;
+            input{
+                opacity: 0.5!important;
+                cursor: not-allowed!important;
+            }
+        }
+        &.dark{
+            input{
+                @include themify($themes) {
+                  color: themed('lightInputColor');
+                }
+            }
+            .bar{
+                border-color: white;   
+            }
+        }
+        &:not(.short):not(.shortest){
+            min-height: 78px;
+        }
+        .icon{display: none;}
+        &.pastFocus, &.has-icon{
+            .icon{display: block;}
+        }
+        // top level elements
+        &.minimalist {
+            margin-top: 0;
+            margin-bottom: 0;
+            min-height: 0;
+            display: inline-block;
+            input{
+                margin: 0;
+                top: 0px;
+                position: relative;
+                min-width: 30px;
+            }
+            label{
+                position: relative;
+                font-weight: normal;
+                font-size: 13px;
+            }
+            .bar{
+                left: 0;
+            }
+            .icon{
+                position: relative;
+                margin-left: 40px;
+                display: inline-block;
+            }
+        }
+        &.short{
+            margin-bottom: 10px;
+            input{
+                top: 0px;
+            }
+            label{
+                top: 14px
+            }
+            .bar{
+                top: 32px;
+            }
+            .icon{
+                top: 4px;
+            }
+        }
+        &.shortest{
+            input{
+                top: 0px;
+            }
+            .bar{
+                top: 28px;
+            }
+            .icon{
+                top: 0px;
+            }
+        }
+        &.auto{
+            width: auto;
+        }
+        input {
+
+            // text
+            font-family: "Open Sans";
+            @include themify($themes) {
+              color: themed('inputColor');
+            }
+            line-height: 32px;
+            font-size: 14px;
+            font-weight: 300;
+            vertical-align: bottom; 
+            // box
+            position: absolute;
+            width: calc(100% - 20px);
+            height: 32px;
+            top: 12px;
+
+            padding: 0;
+            margin: 0; 
+            // misc
+            border-width: 0px;
+            background-color: transparent;
+            &:required,
+            &:valid,
+            &:invalid {
+                box-shadow: none;
+            }
+        }
+         ::placeholder,
+         ::-moz-placeholder {
+            
+            // text
+            font-family: "Open Sans";
+            line-height: 14px;
+            font-size: 14px;
+            font-weight: 300;
+            vertical-align: bottom;
+            line-height: 32px;
+        }
+        label {
+            
+            // text
+            font-family: "Montserrat";
+            font-weight: 500;
+            font-size: 14px;
+            line-height: 14px; 
+            // box
+            position: absolute;
+            padding: 0 0 3px 0;
+            margin: 0;
+            top: 24px; //anim
+            transition: 0.2s ease all; 
+            // misc
+            pointer-events: none;
+        }
+        .icon {
+            position: absolute;
+            right: 6px;
+            top: 18px;
+            &:before {
+                font-size: 14px;
+            }
+            &.caption{
+                display: block!important;
+                right: -20px;
+                top: 7px;
+            }
+        } 
+        // active state positioning
+        input:focus~label,
+        &.bounced label {
+            top: 0px;
+        } 
+        &.bounced.short label{
+            top: -10px;
+        }
+        // focus state
+        input:focus~label {
+            color: $ns1-magenta-primary;
+        }
+        input:focus~.bar {
+            border-color: $ns1-magenta-primary;
+        }
+
+        input:focus~.help-text {
+            opacity: 1;
+        } 
+        // misc
+        &.hide-validation.no-icon{
+            width: 100%;
+            label{
+                text-align: right;
+                padding-right: 20px;
+            }
+            input, .bar{
+                width: 100%;
+            }
+        }
+        &.inline{
+            label{
+                line-height: 32px;
+                vertical-align: middle;
+            }
+            label, input, .bar{
+                width: 50%!important;
+            }
+            input, .bar{
+                left: 50%;
+            }
+        }
+        // valid state
+        &.touched.valid:not(.hide-validation) {
+            .icon,
+            input:not(:focus),
+            input:not(:focus)~label {
+                color: $confirmgreen-status;
+            }
+        }
+        &.touched.valid:not(.hide-validation) input:not(:focus)~.bar {
+            border-color: $confirmgreen-status;
+        } 
+        // error state
+        &.touched.invalid:not(.hide-validation) {
+            .icon,
+            input:not(:focus),
+            input:not(:focus)~label {
+                color: $errorred-status;
+            }
+            input:not(:focus)~.bar {
+                border-color: $errorred-status;
+            }
+        } 
+        // border-bottom bar
+        .bar {
+            width: calc(100% - 28px);
+            height: 0px;
+            position: absolute;
+            border-bottom: 1px solid $strokegray-bs;
+            top: 44px;
+        } 
+        // help text stuff
+        .help-text {
+            @include help-text-base();
+            position: relative;
+            top: 48px;
+        }
+        .icon.pink {
+            color: $ns1-magenta-primary;
+        }
+    }
+}

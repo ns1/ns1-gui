@@ -1,0 +1,113 @@
+@import '../../scss/themes.scss';
+.bunder-container .tabs {
+  clear: both;
+  &.gutter-top > ul {
+    margin-top: 16px; 
+  }
+  &.side{
+    & > ul{
+      margin-top: 10px;
+    }
+  }
+  & > ul {
+    margin-top: 30px;
+    margin-bottom: 1px;
+    display: flex;
+    align-items: center;
+    flex-direction: row;
+
+    & > li {
+      &.active {
+        @include themify($themes) {
+          color: themed('tabActiveText');
+          background: themed('tabActiveBackground');
+        }
+        transition: none;
+      }
+      &:not(.active):hover {
+        @include themify($themes) {
+          color: themed('tabActiveText');
+          background: themed('tabActiveBackground');
+        }
+      }
+      .icon::before {
+        margin-right: 4px;
+      }
+      .tab-label {
+        white-space: nowrap;
+      }
+      cursor: pointer;
+      @include themify($themes) {
+        color: themed('tabText');
+        background: themed('tabBackground');
+      }
+      display: flex;
+      margin-right: 3px;
+      flex: 1 1;
+      height: 100%;
+      padding: 13px;
+      justify-content: center;
+      transition: all 150ms ease-out;
+      list-style: none;
+    }
+    & > li:last-of-type {
+      margin-right: 0;
+    }
+  }
+
+  &.no-margin > ul {
+    margin-top: 0;
+  }
+
+  .tabs-body {
+    display: flex;
+    flex-direction: column;
+    margin-top: 3px;
+    width: 100%;
+    @include themify($themes) {
+      background-color: themed('tabBackground');
+    }
+    h5{
+      @include themify($themes) {
+        background-color: themed('ipamH5');
+      }
+    }
+    dl {
+      font-size: 12px;
+      margin-bottom: 12px;
+      @include themify($themes) {
+        background: themed('itemRowBackground');
+      }
+    }
+    dt {
+        font-weight: bold;
+        flex: 1;
+        margin-right: 8px;
+        min-width: 40%;
+        align-self: flex-start;
+    }
+    dd {
+        min-width: 40%;
+        margin-bottom: 0;
+        flex: 1;
+    }
+    .header{
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: bolder;
+    }
+  }
+
+  .interactive {
+    padding: 10px;
+    display: inherit;
+    // metadata
+  }
+}
+.bunder-container .enclosure{
+  .tabs{
+    ul{
+      margin-top: 0px;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+// These are z-indexes managed in a single location. This hopefully prevents
+// some of the panic in actually making changes to z-indexes and expecting it
+// to actually work.
+
+$z-modal-inactive: -99999;
+$z-modal-wrapper-active: 10000;
+$z-modal-active: 10100;

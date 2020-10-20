@@ -1,0 +1,483 @@
+@import '../../scss/themes.scss';
+@import '../../scss/icons.scss';
+@import '../../scss/mixins.scss';
+.bunder-container, .bunder-form {
+  .inline{
+    .dropdown{
+      width: auto;
+      .dd-button{
+        padding-right: 20px!important;
+      }
+    }
+  }
+  .transparent{
+    .dd-button{
+      background-color: transparent!important;
+    }
+  }
+  .hidebutton{
+    .dd-button{
+      display: none!important;
+    }
+  }
+  .short{
+    .dropdown{
+      margin-bottom: 0px;
+    }
+    .dropdown .dd-button{
+      padding: 2px 5px;
+    }
+    .dd-menu{
+      li{
+        font-size: 14px;
+      }
+    }
+  }
+  .tiny{
+    font-size: 12px!important;
+    .dd-button{
+      font-size: 12px!important;
+      font-weight: normal!important;
+      padding-top: 0px!important;
+      padding-bottom: 0px!important;
+      padding-left: 0px!important;
+      border-width: 0px!important;
+    }
+    .opened .dd-button{
+      box-shadow:none!important;
+    }
+  }
+  .no-margin{
+    margin-bottom: 0px;
+    .dropdown{
+      margin-bottom: 0px;
+    }
+  }
+  .dropdown, .typeahead {
+    position: relative;
+    width: 100%;
+    margin-bottom: 20px;
+    text-align: left;
+    .external-label {
+      @include themify($themes) {
+        color: themed('labelText');
+      }
+      font-family: Montserrat;
+      font-size: 14px;
+      line-height: 32px;
+      font-weight: 500 !important;
+    }
+
+    a {
+      text-decoration: none;
+      @include themify($themes) {
+        color: themed('labelText');
+      }
+
+      &:hover {
+        color: #222222;
+      }
+    }
+    .dd-button {
+      border-radius: 2px;
+      box-sizing: content-box;
+      border: 1px solid #A0A0A0;
+      margin: 0;
+      padding: 10px;
+      @include themify($themes) {
+        color: themed('ddMenuText');
+        background: themed('ddMenuBackground');
+      }
+      &.transparent{
+        @include themify($themes) {
+          background-color: themed('transparent')
+        }
+      }
+      &.disabled{
+        opacity: .5;
+        &:hover{
+          cursor: not-allowed;
+        }
+      }
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+      white-space: nowrap;
+      margin-bottom: 0px;
+      display: flex;
+
+      &:after {
+        width: 0;
+        height: 6px;
+        font-size: 6px;
+        line-height: 6px;
+        content: $triangle_d;
+        font-family: "icons";
+        height: 6px;
+        flex: 1 0 0;
+        padding-left: 6px;
+        align-self: center;
+        justify-self: flex-end;
+        text-align: right;
+      }
+    }
+
+    .dd-input {
+      display: none;
+    }
+
+    .spacer {
+      display: none;
+      position: absolute;
+      width: 100%;
+      background: white;
+      height: 4px;
+      z-index: 11000;
+      top: 32px;
+    }
+
+    .dd-menu {
+      display: none;
+      position: absolute;
+      z-index: 11000;
+      border: 0;
+      padding: 0;
+      min-width: 100%;
+      @include themify($themes) {
+        box-shadow: themed('ddMenuBoxShadow');
+        border: themed('ddMenuButtonBorder');
+        background: themed('ddMenuBackground');
+      }
+      list-style-type: none;
+      max-height: 30vh;
+      overflow-y: auto;
+      li {
+        &.link {
+          @include themify($themes) {
+            color: themed('paginationHoverText');
+          }
+        }
+        padding: 6px 14px;
+        cursor: pointer;
+        white-space: nowrap;
+        &:hover {
+          @include themify($themes) {
+            color: themed('ddMenuHoverText');
+            background: themed('ddMenuHoverBackground');
+          }
+        }
+          &:not(.disabled){
+            cursor: pointer;
+          }
+        &.disabled {
+          pointer-events: none;
+          opacity: 0.3;
+        }
+      }
+      &.opened{
+        display: block;
+      }
+    }
+
+    &.opened {
+      .spacer {
+        display: block;
+      }
+      .dd-button {
+        @include themify($themes) {
+          box-shadow: themed('ddMenuButtonBoxShadow');
+          border: themed('ddMenuButtonBorder');
+        }
+
+        &:after {
+          border: 0;
+        }
+      }
+      .dd-menu {
+        display: block;
+        border-top: 1px solid transparent;
+      }
+    }
+
+  }
+
+  .text-menu {
+    text-align: left;
+    position: relative;
+
+   .timespan.icon {
+      @include themify($themes) {
+        color: themed('ddMenuText');
+      }
+    }
+
+    &.multi .dd-menu{
+      li{
+        padding-right: 30px;
+      }
+    }
+
+    .line {
+      display: inline;
+      width: 1px;
+      height: 22px;
+      border: .5px solid #ADB0B3;
+      margin-right: 8px;
+      margin-left: 2px;
+    }
+
+    .number {
+      display: inline;
+      font-weight: 500;
+      color: $black-text;
+    }
+    .wrap {
+      width: max-content;
+      display: flex;
+      align-items: center;
+    }
+
+    a {
+      text-decoration: none;
+      @include themify($themes) {
+        color: themed('ddMenuText');
+      }
+
+      &:hover {
+        @include themify($themes) {
+          color: themed('ddMenuHoverText');
+        }
+      }
+    }
+    .dd-menu {
+      display: none;
+      min-width: 160px;
+
+      li {
+        position: relative;
+        span.spacer {
+          width: 40px;
+          display: inline-block;
+        }
+        span.checkmark {
+          visibility: hidden;
+          position: absolute;
+          right: 5px;
+          bottom: 8px;
+          width: 20px;
+        }
+
+        &.ticked {
+          color: $white-text;
+          background: $tab-hover-text;
+
+          span.checkmark {
+            visibility: visible;
+          }
+        }
+
+        &:hover {
+          color: $black-text;
+          background: $tab-hover-background;
+        }
+        &.disabled {
+          pointer-events: none;
+          opacity: 0.3;
+        }
+        &:not(.disabled){
+          cursor: pointer;
+        }
+      }
+      &.visible {
+        display: block;
+        border-top: 1px solid transparent;
+      }
+    }
+    .dd-button {
+      display: flex;
+      padding: 3px 22px 3px 14px;
+      &.short{
+        padding: 0px 5px;
+      }
+      &.disabled{
+        opacity: .5;
+        &:hover{
+          cursor: not-allowed;
+        }
+      }
+      @include themify($themes) {
+        color: themed('ddMenuText');
+        background: themed('ddMenuBackground');
+      }
+      &.transparent{
+        @include themify($themes) {
+          background-color: themed('transparent')
+        }
+      }
+      &.short{
+        padding: 0px 5px;
+      }
+      cursor: pointer;
+      font-weight: 500;
+      font-size: 14px;
+      white-space: nowrap;
+      border: 1px solid transparent;
+
+      &:after {
+        font-size: 6px;
+        line-height: 6px;
+        content: $triangle_d;
+        font-family: "icons";
+        height: 6px;
+        flex: 1 0 0;
+        padding-left: 6px;
+        align-self: center;
+        justify-self: flex-end;
+        right: 10px;
+        width: 0;
+        height: 6px;
+        text-align: right;
+      }
+      &:hover {
+        border-color: $tab-hover-background;
+        border-radius: 1px;
+      }
+      &.opened {
+        @include themify($themes) {
+          box-shadow: themed('ddMenuButtonBoxShadow');
+          border: themed('ddMenuButtonBorder');
+        }
+      }
+    }
+
+    .dd-input {
+      display: none;
+    }
+    .dd-menu {
+      position: absolute;
+      z-index: 11000;
+      top: 98%;
+      border: 0;
+      padding: 0;
+      &:not(.right){
+        left: 0px;
+      }
+      width: fit-content;
+      @include themify($themes) {
+        color: themed('ddMenuText');
+        background: themed('ddMenuBackground');
+        box-shadow: themed('ddMenuBoxShadow');
+      }
+      list-style-type: none;
+      &.bottom{
+        top: inherit;
+        bottom: 50%;
+      }
+      &.right{
+        right: 0px;
+      }
+      li {
+        padding: 7px 5px 7px 14px;
+        cursor: pointer;
+        white-space: nowrap;
+        &:not(.disabled){
+          cursor: pointer;
+        }
+
+          
+        &:hover {
+          @include themify($themes) {
+            color: themed('ddMenuText');
+            background: themed('ddMenuHoverBackground');
+          }
+        }
+      }
+    }
+  }
+
+  @include options-menu();
+  .dd-menu .url .icon{
+    padding-left: 14px;
+  }
+  .dd-menu .url .icon + span{
+    width: 75%!important;
+    display: inline-block!important;
+    text-align: left;
+    a{
+      padding-left: 0!important;
+      padding-right: 0!important;
+    }
+  }
+  .dd-menu .url{
+    padding: 0px!important;
+    span:not(.icon){
+      width: 100%;
+      display: block;
+      height: 100%;
+      padding: 0px;
+      a{
+        width: 100%;
+        display: block;
+        height: 100%;
+        padding: 7px 5px 7px 14px;
+      }
+    }
+  }
+  .text-menu, .dropdown, .options-menu {
+    .has-sub:hover:not(.disabled),a:hover{
+      .submenu{
+        display: block;
+        ul{
+          display: block;
+        }
+        &.multi-column ul {
+            display: flex;
+        }
+      }
+    }
+    .has-sub.disabled{
+      opacity: .5;
+      cursor: not-allowed;
+    }
+    .submenu {
+      z-index:20000;
+      &.left{
+        transform: translate3d(-120%, 0, 0);
+      }
+      ul {
+        &.right {
+          top: 0;
+          margin-top: 33px;
+          right: -100%;
+        }
+        li{
+          &:not(:hover) {
+            @include themify($themes) {
+              color: themed('labelText');
+            }
+          }
+          &:not(.disabled){
+            cursor: pointer;
+          }
+        }
+        left: 100%;
+        display: none;
+        position: absolute;
+        margin-top: -50px;
+      }
+      &.multi-column {
+        ul {
+          left: 100%;
+          li {
+              display: flex;
+              min-width: 48%;
+          }
+          flex-direction: row;
+          flex-wrap: wrap;
+          flex-flow: row wrap;
+          width: 200%;
+        }
+      }
+    }
+  }
+}
