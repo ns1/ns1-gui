@@ -18,7 +18,7 @@ fs
       .join('\n') + `
             @font-face {
             font-family: "icons";
-            src: url("eot");
+            src: url("/eot");
             src: url("iconfont.eot?#iefix") format("embedded-opentype"),
                  url("iconfont.woff") format("woff"),
                  url("iconfont.ttf") format("truetype"),
