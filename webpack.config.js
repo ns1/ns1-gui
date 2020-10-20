@@ -10,7 +10,7 @@ const devPort = 8500;
 console.log('isProd: ', isProd);
 
 const url = (suffix) => {
-  return `/${suffix}`;
+  return `${suffix}`;
 };
 
 let ico = () => {
@@ -113,12 +113,6 @@ let config = {
           path.resolve(__dirname, 'components')
         ]
       },
-      {test: /\.(woff|woff2|eot|ttf)$/, loader: 'file-loader'},
-      {
-        test: /\.(jpg|png|gif|jpeg)$/,
-        loader: 'file-loader',
-        include: [path.resolve(__dirname, 'assets')]
-      },
       {test: /\.(js|jsx)$/,
         include:[
           path.resolve(__dirname, 'src'),
@@ -130,7 +124,13 @@ let config = {
           presets: isProd ? ['react', 'es2015', 'stage-0'] : ['react', 'react-hmre', 'es2015', 'stage-0'],
           plugins: ['transform-decorators-legacy']
         }
-      }
+      },
+      {test: /\.(woff|woff2|eot|ttf)$/, loader: 'file-loader'},
+      {
+        test: /\.(jpg|png|gif|jpeg)$/,
+        loader: 'file-loader',
+        include: [path.resolve(__dirname, 'assets')]
+      },
     ]
   },
   // env conditional plugins for filesize, dashboard, etc.
