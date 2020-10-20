@@ -25,6 +25,7 @@ class Docs extends React.Component {
     return <div className="bunder-container">
       <h1>NS1 GUI components</h1>
       <p>
+        <span className="icon folder"/>
         This is an extremely early version of a self-contained version of our GUI component library.<br/>
         We will be pushing up new components here very rapidly, and then when theres a usable subset<br/>
         published we will focus on polish, more examples, bundle size improvements, and more documentation.
