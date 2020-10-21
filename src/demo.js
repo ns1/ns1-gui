@@ -75,7 +75,7 @@ class Docs extends React.Component {
               onChange={e=>this.setState({checkbox: e.currentTarget.value})}
               checked={this.state.checkbox === 'demo2'}
               value="demo2"/>
-        </div>
+          </div>
         </DemoBlock>
         <DemoBlock
           title="Dropdown"
@@ -149,19 +149,43 @@ class Docs extends React.Component {
           title="Pagination"
           ex={paginationEX}
           doc={paginationMD}>
-          pagination stub
+            <Pagination
+              next={true}
+              prev={true}
+              items={8}
+              maxButtons={5}
+              activePage={this.state.activePage || 0}
+              onSelect={i=>this.setState({activePage: i})} />
         </DemoBlock>
         <DemoBlock
           title="Progress Bar"
           ex={progressbarEX}
           doc={progressbarMD}>
-          progressbar stub
+          <ProgressBar
+            className="flex-whole"
+            label='Progress'
+            percent={82}
+            showValue={true} />
+
         </DemoBlock>
         <DemoBlock
           title="Radio"
           ex={radioEX}
           doc={radioMD}>
-          radio stub
+          <div>
+            <Radio
+              label="Thing1"
+              checked={this.state.radio === 'thing1'}
+              name="first"
+              onChange={e => this.setState({radio: e.currentTarget.value})}
+              value="thing1" />
+            <Radio
+              label="Thing2"
+              checked={this.state.radio === 'thing2'}
+              name="second"
+              onChange={e => this.setState({radio: e.currentTarget.value})}
+              value="thing2" />
+          </div>
         </DemoBlock>
 
         <DemoBlock

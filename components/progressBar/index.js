@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-
+import './progressBar.scss';
 class ProgressBarComp extends React.Component {
   static propTypes = {
     label: PropTypes.string,

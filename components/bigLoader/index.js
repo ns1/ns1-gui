@@ -39,5 +39,5 @@ class BigLoaderComp extends React.Component{
 
 export const BigLoader = BigLoaderComp;
 export default BigLoaderComp;
-export bigloaderMD from './bigloader.md';
-export bigloaderEX from './bigloader.ex.md';
+export bigloaderMD from './bigloader.md.js';
+export bigloaderEX from './bigloader.ex.md.js';
