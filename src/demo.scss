@@ -1,0 +1,11 @@
+pre {
+  padding: 5px;
+  background-color: #333;
+  color: #ccc;
+  width: 100%;
+}
+.mdcode{
+  &>div{
+    width: 100%;
+  }
+}

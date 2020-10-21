@@ -2,6 +2,7 @@ import {render} from 'react-dom';
 import React from 'react';
 // import TopNav from '../components/top'
 import '../scss/index.scss';
+import './demo.scss';
 import {BigLoader, bigloaderMD, bigloaderEX} from '../components/bigLoader';
 import {Text, textMD, textEX} from '../components/text';
 import {Tabs, Tab, tabsMD, tabsEX} from '../components/tabs';
@@ -108,7 +109,7 @@ class Docs extends React.Component {
               loading={true}
               loadingText="Demo Bigloader in tab"
               noDatat={false}
-              noDataText="This would be showing if there wasn't data" />
+              noDataText="This woul"/>
           </Tab>
           <Tab
             token={1}
@@ -120,7 +121,7 @@ class Docs extends React.Component {
               loading={false}
               loadingText="This is loading explainer text"
               noDatat={false}
-              noDataText="This would be showing if there wasn't data" />
+              noDataText="This woul"/>
 
           </Tab>
         </Tabs>

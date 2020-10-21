@@ -12,11 +12,11 @@ export default `\`\`\`html
     label="Demotab 1">
     <BigLoader
       warn={false} 
-      warnText="This would be showing in the context of a warning."
+      warnText="Some warning."
       loading={true}
       loadingText="Demo Bigloader in tab"
       noDatat={false}
-      noDataText="This would be showing if there wasn't data" />
+      noDataText="No Data" />
   </Tab>
   <Tab
     token={1}
@@ -28,7 +28,7 @@ export default `\`\`\`html
       loading={false}
       loadingText="This is loading explainer text"
       noDatat={false}
-      noDataText="This would be showing if there wasn't data" />
+      noDataText="No data"
 
   </Tab>
 </Tabs>

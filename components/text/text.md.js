@@ -1,12 +1,6 @@
-export default `- wraps an input field, provides event handlers and inline validation
-- allows for animated "pop" labels akin to material design
-- allows for help text below the field when input is focused
-
-#### required props
+export default `- wraps an input field, provides event handlers and inline validation. allows for animated "pop" labels akin to material design. allows for help text below the field when input is focused.
 
 - **onChange** *(func)* function to be called. function should accept e param. e.currentTarget represents the react virtual event instance. value = (string, number) initial value. this isn't strictly required, but devtools will yell at you.
-
-#### optional
 - **autoFocus** *(bool)* on component mount, steal focus if possible
 - **className** *(string)* dom wrapper classes to add (usually flex-* layout)
 - **disabled** *(bool)* to disable/enable
@@ -24,4 +18,5 @@ export default `- wraps an input field, provides event handlers and inline valid
 - **onKeyPress** *(func*)
 - **pattern** *(obj)* object with 2 keys, message (str) and pattern (regex | func). used for inline validation.
 - **placeholder** *(string)* string for input placeholder text
-- **required** *(string)* causes error class to be added if focus then blur with no value`;
+- **required** *(string)* causes error class to be added if focus then blur with no value
+`;
