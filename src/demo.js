@@ -247,19 +247,38 @@ class Docs extends React.Component {
           title="Textarea"
           ex={textareaEX}
           doc={textareaMD}>
-          textarea stub
+          <Textarea
+            onChange={(e) => this.setState({textArea: e.currentTarget.value})}
+            value={this.state.textArea}
+            readOnly={false}
+            id="demotext"
+            label="Demo Textarea"
+            placeHolder="Some text"
+            name="demotextarea"
+            help="textareas are for longer blocks of text"
+            disabled={false}
+            className="foo" />
         </DemoBlock>
         <DemoBlock
           title="Toggle"
           ex={toggleEX}
           doc={toggleMD}>
-          toggle stub
+          <Toggle
+            label="Demo Toggle"
+            checked={this.state.toggleDemo}
+            onChange={e=>this.setState({toggleDemo: e.currentTarget.checked})}
+            inline={true}
+            labelFirst={true} />
         </DemoBlock>
         <DemoBlock
           title="Tooltip"
           ex={tooltipEX}
           doc={tooltipMD}>
-          tooltip stub
+          <Tooltip
+            content="demo tooltip text"
+            direction='top'>
+              <span> Info <span className="icon info" /></span>
+          </Tooltip>
         </DemoBlock>
         <DemoBlock
           title="Typeahead"

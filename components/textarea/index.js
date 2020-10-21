@@ -63,9 +63,11 @@ class TextareaComp extends React.Component{
         onKeyDown={e => {
           e.stopPropagation();
           onKeyDown && onKeyDown(e);
-          this.setState({
-            touched: true
-          });
+          if(!this.setState.touched){
+            this.setState({
+              touched: true
+            });
+          }
         }}
         placeHolder={placeHolder}
         readOnly={readOnly}

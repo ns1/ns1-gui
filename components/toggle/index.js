@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import Tooltip from '../tooltip';
-
+import './toggle.scss';
 class ToggleComp extends React.Component{
   static propTypes = {
     /* eslint-disable react/no-deprecated */
