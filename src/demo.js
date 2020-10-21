@@ -4,6 +4,8 @@ import React from 'react';
 import '../scss/index.scss';
 import './demo.scss';
 import {BigLoader, bigloaderMD, bigloaderEX} from '../components/bigLoader';
+import {Checkbox, checkboxMD, checkboxEX} from '../components/checkbox';
+import {FormTabs, FormTab, formtabsEX, formtabsMD} from '../components/formTabs';
 import {Text, textMD, textEX} from '../components/text';
 import {Tabs, Tab, tabsMD, tabsEX} from '../components/tabs';
 import {Modal, modalMD, modalEX} from '../components/modal';
@@ -50,6 +52,45 @@ class Docs extends React.Component {
               loadingText="This is loading explainer text"
               noDatat={false}
               noDataText="This would be showing if there wasn't data" />
+        </DemoBlock>
+      <DemoBlock
+          title="Checkbox"
+          ex={checkboxEX}
+          doc={checkboxMD}>
+          <div><Checkbox
+  label="demo1"
+  onChange={e=>this.setState({checkbox: e.currentTarget.value})}
+  checked={this.state.checkbox === 'demo1'}
+  value="demo1"/>
+<Checkbox
+  label="demo2"
+  onChange={e=>this.setState({checkbox: e.currentTarget.value})}
+  checked={this.state.checkbox === 'demo2'}
+  value="demo2"/>
+</div>
+        </DemoBlock>
+        <DemoBlock
+          title="Form Tabs"
+          ex={formtabsEX}
+          doc={formtabsMD}>
+          <div className="enclosure">
+            <div className="body">
+              <FormTabs
+                headerLabel="Important Stuff: "
+                defaultActiveKey={0}
+                activeKey={this.state.formTabActive}
+                onSelect={idx => this.setState({formTabActive: idx})}>
+                <FormTab
+                  label="Tab 1">
+                  ... put form elements here
+                </FormTab>
+                <FormTab
+                  label="Tab 2">
+                  ... put more form elements here
+                </FormTab>
+              </FormTabs>
+            </div>
+          </div>
         </DemoBlock>
         <DemoBlock
           title="Dropdown"

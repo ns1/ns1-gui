@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import './checkbox.scss';
-export default class CheckBox extends React.Component{
+class CheckBoxComp extends React.Component{
   static propTypes = {
     /* eslint-disable react/no-deprecated */
     label: PropTypes.string.isRequired,
@@ -45,3 +45,8 @@ export default class CheckBox extends React.Component{
     </label>;
   }
 }
+
+export const Checkbox = CheckBoxComp;
+export default CheckBoxComp;
+export checkboxMD from './checkbox.md';
+export checkboxEX from './checkbox.ex.md';

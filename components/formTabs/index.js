@@ -59,3 +59,6 @@ export class FormTab extends React.Component{
     </div>;
   }
 }
+
+export formtabsEX from './formTabs.ex.md';
+export formtabsMD from './formTabs.md';
