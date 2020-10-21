@@ -1,5 +1,5 @@
 import React from 'react';
-export default class Loader extends React.Component{
+class LoaderComp extends React.Component{
   render(){
     return <div
       className="loader">
@@ -9,3 +9,7 @@ export default class Loader extends React.Component{
     </div>;
   }
 }
+export default LoaderComp;
+export const Loader = LoaderComp;
+export loaderMD from './loader.md.js';
+export loaderEX from './loader.ex.md.js'

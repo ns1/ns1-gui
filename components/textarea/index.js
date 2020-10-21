@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import TextareaAutosize from 'react-autosize-textarea';
 
-export default class Textarea extends React.Component{
+class TextareaComp extends React.Component{
   static propTypes = {
     onChange: PropTypes.func,
     onKeyDown: PropTypes.func,
@@ -75,3 +75,8 @@ export default class Textarea extends React.Component{
     </div>;
   }
 }
+
+export default TextareaComp;
+export const Textarea = TextareaComp;
+export textareaEX from './textarea.ex.md.js';
+export textareaMD from './textarea.md.js';

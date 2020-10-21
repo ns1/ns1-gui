@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import Tooltip from './tooltip';
 
-export default class Toggle extends React.Component{
+class ToggleComp extends React.Component{
   static propTypes = {
     /* eslint-disable react/no-deprecated */
     label: PropTypes.string.isRequired,
@@ -62,3 +62,8 @@ export default class Toggle extends React.Component{
     </label>;
   }
 }
+
+export default ToggleComp;
+export const Toggle = ToggleComp;
+export toggleEX from './toggle.ex.md.js';
+export toggleMD from './toggle.md.js';

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import Text from '../text';
 import {TextMenu, MenuItem} from '../dropdown';
 
-export default class TypeAhead extends React.Component{
+export default class TypeAheadComp extends React.Component{
   static propTypes = {
     value: PropTypes.array,
     placeholder: PropTypes.string,
@@ -249,3 +249,7 @@ export default class TypeAhead extends React.Component{
     </div>;
   }
 }
+export default TypeAheadComp;
+export const TypeAhead = TypeAheadComp;
+export typeaheadEX from './typeahead.ex.md.js';
+export typeaheadMD from './typeahead.md.js';

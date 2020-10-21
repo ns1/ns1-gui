@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 
-export default class ProgressBar extends React.Component {
+class ProgressBarComp extends React.Component {
   static propTypes = {
     label: PropTypes.string,
     percent: PropTypes.number.isRequired,
@@ -35,3 +35,8 @@ export default class ProgressBar extends React.Component {
     </div>;
   }
 }
+
+export default ProgressBarComp;
+export const ProgressBar = ProgressBarComp;
+export progressbarEX from './progressbar.ex.md.js';
+export progressbarMD from './progressbar.md.js';

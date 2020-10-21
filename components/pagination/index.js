@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './pagination.scss';
 
-export default class Pagination extends React.Component {
+class PaginationComp extends React.Component {
   static propTypes = {
       /* eslint-disable react/no-deprecated */
       className: PropTypes.string,
@@ -146,3 +146,8 @@ export default class Pagination extends React.Component {
     </div>;
   }
 }
+
+export default PaginationComp;
+export const Pagination = PaginationComp;
+export paginationEX from './pagination.ex.md.js';
+export paginationMD from './pagination.md.js';

@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './tooltip.scss';
 
-export default class Tooltip extends React.Component{
+class TooltipComp extends React.Component{
   static propTypes = {
     /* eslint-disable react/no-deprecated */
     content: PropTypes.string.isRequired,
@@ -25,3 +25,7 @@ export default class Tooltip extends React.Component{
     </div>;
   }
 }
+export default TooltipComp;
+export const Tooltip = TooltipComp;
+export tooltipEX from './tooltip.ex.md.js';
+export tooltipMD from './tooltip.md.js';

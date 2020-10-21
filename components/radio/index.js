@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './radio.scss';
 
-export default class Radio extends React.Component{
+default class RadioComp extends React.Component{
   static propTypes = {
     label: PropTypes.string.isRequired,
     checked: PropTypes.bool,
@@ -34,3 +34,8 @@ export default class Radio extends React.Component{
     </label>;
   }
 }
+
+export default RadioComp;
+export const Radio = RadioComp;
+export radioEX from './radio.ex.md.js';
+export radioMD from './radio.md.js';
