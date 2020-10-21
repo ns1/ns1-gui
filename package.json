@@ -1,6 +1,6 @@
 {
   "name": "ns1-gui",
-  "version": "1.0.17",
+  "version": "1.0.18",
   "description": "React component toolset for building interfaces that use the same patterns as the NS1 Portal.",
   "main": "demo.js",
   "scripts": {
