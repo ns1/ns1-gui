@@ -5,11 +5,18 @@ import '../scss/index.scss';
 import './demo.scss';
 import {BigLoader, bigloaderMD, bigloaderEX} from '../components/bigLoader';
 import {Checkbox, checkboxMD, checkboxEX} from '../components/checkbox';
+import {Dropdown, MenuItem, dropdownMD, dropdownEX} from '../components/dropdown';
 import {FormTabs, FormTab, formtabsEX, formtabsMD} from '../components/formTabs';
+import {Modal, modalMD, modalEX} from '../components/modal';
+import {Pagination, paginationMD, paginationEX} from '../components/pagination';
+import {ProgressBar, progressbarMD, progressbarEX} from '../components/progressBar';
+import {Radio, radioMD, radioEX} from '../components/radio';
+import {Textarea, textareaMD, textareaEX} from '../components/textarea';
+import {Toggle, toggleMD, toggleEX} from '../components/toggle';
+import {Tooltip, tooltipMD, tooltipEX} from '../components/tooltip';
+import {TypeAhead, typeaheadMD, typeaheadEX} from '../components/typeahead';
 import {Text, textMD, textEX} from '../components/text';
 import {Tabs, Tab, tabsMD, tabsEX} from '../components/tabs';
-import {Modal, modalMD, modalEX} from '../components/modal';
-import {Dropdown, MenuItem, dropdownMD, dropdownEX} from '../components/dropdown';
 import ReactMarkdown from 'react-markdown';
 import installation from './installation'
 import DemoBlock from './demoblock';
@@ -57,17 +64,36 @@ class Docs extends React.Component {
           title="Checkbox"
           ex={checkboxEX}
           doc={checkboxMD}>
-          <div><Checkbox
-  label="demo1"
-  onChange={e=>this.setState({checkbox: e.currentTarget.value})}
-  checked={this.state.checkbox === 'demo1'}
-  value="demo1"/>
-<Checkbox
-  label="demo2"
-  onChange={e=>this.setState({checkbox: e.currentTarget.value})}
-  checked={this.state.checkbox === 'demo2'}
-  value="demo2"/>
-</div>
+          <div>
+            <Checkbox
+              label="demo1"
+              onChange={e=>this.setState({checkbox: e.currentTarget.value})}
+              checked={this.state.checkbox === 'demo1'}
+              value="demo1"/>
+            <Checkbox
+              label="demo2"
+              onChange={e=>this.setState({checkbox: e.currentTarget.value})}
+              checked={this.state.checkbox === 'demo2'}
+              value="demo2"/>
+        </div>
+        </DemoBlock>
+        <DemoBlock
+          title="Dropdown"
+          ex={dropdownEX}
+          doc={dropdownMD}>
+          <Dropdown
+            onSelect={e=>this.setState({
+              dropdown: e.currentTarget.value
+            })}
+            className="flex-half"
+            label="Example Dropdown"
+            defaultValue="first"
+            value={this.state.dropdown}>
+            <MenuItem
+              value="first">First Item</MenuItem>
+            <MenuItem
+              value="second">Second Item</MenuItem>
+          </Dropdown>
         </DemoBlock>
         <DemoBlock
           title="Form Tabs"
@@ -92,25 +118,39 @@ class Docs extends React.Component {
             </div>
           </div>
         </DemoBlock>
-        <DemoBlock
-          title="Dropdown"
-          ex={dropdownEX}
-          doc={dropdownMD}>
-          <Dropdown
-            onSelect={e=>this.setState({
-              dropdown: e.currentTarget.value
-            })}
-            className="flex-half"
-            label="Example Dropdown"
-            defaultValue="first"
-            value={this.state.dropdown}>
-            <MenuItem
-              value="first">First Item</MenuItem>
-            <MenuItem
-              value="second">Second Item</MenuItem>
-          </Dropdown>
-        </DemoBlock>
 
+        <DemoBlock
+          title="Modal"
+          ex={modalEX}
+          doc={modalMD}>
+          <div>         
+            <button
+              onClick={() => this.setState({showModal: true})}
+              className="button primary short inline">
+                Pop Demo Modal
+            </button>
+            <Modal
+              show={this.state.showModal}
+              onHide={() => this.hideModal()}>
+              <Modal.Header
+                close={true}>
+                <Modal.Title>Example Modal</Modal.Title>
+              </Modal.Header>
+              <Modal.Body>
+                  here is a modal body, you can put anything in here
+              </Modal.Body>
+              <Modal.Footer>
+                  here is a modal footer, usually you'd put buttons here
+              </Modal.Footer>
+            </Modal>
+          </div>
+        </DemoBlock>
+        <DemoBlock
+          title="Pagination"
+          ex={paginationEX}
+          doc={paginationMD}>
+          pagination stub
+        </DemoBlock>
         <DemoBlock
           title="Text/number"
           ex={textEX}
@@ -168,32 +208,6 @@ class Docs extends React.Component {
         </Tabs>
         </DemoBlock>
 
-        <DemoBlock
-          title="Modal"
-          ex={modalEX}
-          doc={modalMD}>
-          <div>         
-            <button
-              onClick={() => this.setState({showModal: true})}
-              className="button primary short inline">
-                Pop Demo Modal
-            </button>
-            <Modal
-              show={this.state.showModal}
-              onHide={() => this.hideModal()}>
-              <Modal.Header
-                close={true}>
-                <Modal.Title>Example Modal</Modal.Title>
-              </Modal.Header>
-              <Modal.Body>
-                  here is a modal body, you can put anything in here
-              </Modal.Body>
-              <Modal.Footer>
-                  here is a modal footer, usually you'd put buttons here
-              </Modal.Footer>
-            </Modal>
-          </div>
-        </DemoBlock>
     </div>;
   }
 }

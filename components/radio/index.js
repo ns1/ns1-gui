@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 import React from 'react';
 import './radio.scss';
 
-default class RadioComp extends React.Component{
+class RadioComp extends React.Component{
   static propTypes = {
     label: PropTypes.string.isRequired,
     checked: PropTypes.bool,

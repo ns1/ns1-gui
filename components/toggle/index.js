@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import Tooltip from './tooltip';
+import Tooltip from '../tooltip';
 
 class ToggleComp extends React.Component{
   static propTypes = {
