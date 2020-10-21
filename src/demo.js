@@ -152,21 +152,16 @@ class Docs extends React.Component {
           pagination stub
         </DemoBlock>
         <DemoBlock
-          title="Text/number"
-          ex={textEX}
-          doc={textMD}>
-          <Text
-            onChange={e => {
-              this.setState({textExample: e.currentTarget.value});
-            }}
-            label="Sample text field"
-            value={this.state.textExample}
-            help="example help text."
-            pattern={{
-              pattern: val => val % 5 === 0,
-              message: 'Value should be divisible by 5'
-            }}
-            className="flex-half gutter-right" />
+          title="Progress Bar"
+          ex={progressbarEX}
+          doc={progressbarMD}>
+          progressbar stub
+        </DemoBlock>
+        <DemoBlock
+          title="Radio"
+          ex={radioEX}
+          doc={radioMD}>
+          radio stub
         </DemoBlock>
 
         <DemoBlock
@@ -206,6 +201,47 @@ class Docs extends React.Component {
 
           </Tab>
         </Tabs>
+        </DemoBlock>
+        <DemoBlock
+          title="Text/number"
+          ex={textEX}
+          doc={textMD}>
+          <Text
+            onChange={e => {
+              this.setState({textExample: e.currentTarget.value});
+            }}
+            label="Sample text field"
+            value={this.state.textExample}
+            help="example help text."
+            pattern={{
+              pattern: val => val % 5 === 0,
+              message: 'Value should be divisible by 5'
+            }}
+            className="flex-half gutter-right" />
+        </DemoBlock>
+        <DemoBlock
+          title="Textarea"
+          ex={textareaEX}
+          doc={textareaMD}>
+          textarea stub
+        </DemoBlock>
+        <DemoBlock
+          title="Toggle"
+          ex={toggleEX}
+          doc={toggleMD}>
+          toggle stub
+        </DemoBlock>
+        <DemoBlock
+          title="Tooltip"
+          ex={tooltipEX}
+          doc={tooltipMD}>
+          tooltip stub
+        </DemoBlock>
+        <DemoBlock
+          title="Typeahead"
+          ex={typeaheadEX}
+          doc={typeaheadMD}>
+          typehead stub
         </DemoBlock>
 
     </div>;
