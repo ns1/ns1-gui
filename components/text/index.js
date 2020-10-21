@@ -3,7 +3,7 @@ import React from 'react';
 import _ from 'lodash';
 import './text.scss';
 
-export default class Text extends React.Component{
+class TextComp extends React.Component{
   static propTypes = {
     autoComp: PropTypes.bool,
     autoFocus: PropTypes.bool,
@@ -222,3 +222,6 @@ export default class Text extends React.Component{
     </div>;
   }
 }
+export textMD from './text.md.js';
+export default Text;
+export const Text = TextComp;

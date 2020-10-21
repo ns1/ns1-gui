@@ -536,3 +536,4 @@ export class MenuItem extends React.Component {
   }
 }
 export default 'You borked the import for the dropdown!';
+export dropdownMD from './dropdown.md.js';

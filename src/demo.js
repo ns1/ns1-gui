@@ -2,11 +2,14 @@ import {render} from 'react-dom';
 import React from 'react';
 // import TopNav from '../components/top'
 import '../scss/index.scss';
-import Text from '../components/text';
-import {Tabs, Tab} from '../components/tabs';
-import Modal from '../components/modal';
-import {Dropdown, MenuItem} from '../components/dropdown';
+import {Text, textMD} from '../components/text';
+import {Tabs, Tab, tabsMD} from '../components/tabs';
+import {Modal, modalMD} from '../components/modal';
+import {Dropdown, MenuItem, dropdownMD} from '../components/dropdown';
 import ReactMarkdown from 'react-markdown';
+import installation from './installation'
+console.log(dropdownMD);
+console.log(textMD);
 // todo: automate this all with some preprocessor in the component files
 // themselves
 class Docs extends React.Component {
@@ -31,69 +34,7 @@ class Docs extends React.Component {
         published we will focus on polish, more examples, bundle size improvements, and more documentation.
       </p>
       <h1>Installation</h1>
-      <ReactMarkdown source={`## deps
-\`\`\`js 
-npm install --save-dev node-sass, style-loader, postcss-loader, sass-loader,
-babel-loader, babel-preset-react, babel-preset-es2015, babel-preset-stage-0, 
-babel-plugin-transform-decorators-legacy
-\`\`\`
-
-## add loaders to your webpack config
-\`\`\`
-  {
-    test: /\.scss$/,
-    loaders: ['style-loader', 'postcss-loader', 'sass-loader'],
-    exclude: /node_modules/,
-    include: [
-      path.resolve(__dirname, 'node_modules/ns1-gui/scss'),
-      path.resolve(__dirname, 'node_modules/ns1-gui/components')
-    ]
-  },
-  {
-    test: /\.css$/i,
-    sideEffects: true,
-    loaders: [
-      'style-loader',
-      {
-        loader: 'css-loader',
-        options: {
-          url: false
-        }
-      }
-    ],
-    exclude: /node_modules/,
-    include: [
-      path.resolve(__dirname, 'node_modules/ns1-gui/scss'),
-      path.resolve(__dirname, 'node_modules/ns1-gui/components')
-    ]
-  },
-  {test: /\.(woff|woff2|eot|ttf)$/, loader: 'file-loader'},
-  {test: /\.(js|jsx)$/,
-    include:[
-      path.resolve(__dirname, 'node_modules/ns1-gui/scss'),
-      path.resolve(__dirname, 'node_modules/ns1-gui/components')
-    ],
-    loader: 'babel-loader',
-    query: {
-      presets: ['react', 'es2015', 'stage-0'],
-      plugins: ['transform-decorators-legacy']
-    }
-  },
-\`\`\`
-## add fonts
-in your html, include
-\`\`\`
-<link href='//fonts.googleapis.com/css?family=Montserrat:200,300,400,500,600|Open+Sans:300,600&amp;subset=latin' rel='stylesheet' type='text/css'>
-\`\`\`
-`} />
-{/*  
-      <h1>Usage</h1>
-      ```
-      import {Tabs, Tab} from 'ns1-gui';
-      import 'ns1-gui/scss/index.scss';
-      ```
-      wrap all components in 2 divs, .theme-light at the root, then .bunder-container inside of that.
-*/} 
+      <ReactMarkdown source={installation} />
       <h1>Components</h1>
       <div className="flex-wrap wrap">
         <h3 className="flex-whole">Dropdown Input</h3>
@@ -114,11 +55,7 @@ in your html, include
         </div>
         <div className="flex-half">
           <ReactMarkdown
-            source={`import dropdown and menuitem from ns1-gui
-#### Dropdown props
-- **onSelect** *(func)* function called when user makes a selection. access selected value with e.currentTarget.value
-#### MenuItem props
-- **value** *(string)* value to pass to onselect function`} />
+            source={dropdownMD} />
         </div>
       </div>
       <div className="flex-wrap wrap">
@@ -137,33 +74,7 @@ in your html, include
           className="flex-half gutter-right" />
         <div className="flex-half docs">
           <ReactMarkdown
-            source={`- wraps an input field, provides event handlers and inline validation
-- allows for animated "pop" labels akin to material design
-- allows for help text below the field when input is focused
-
-#### required props
-
-- **onChange** *(func)* function to be called. function should accept e param. e.currentTarget represents the react virtual event instance. value = (string, number) initial value. this isn't strictly required, but devtools will yell at you.
-
-#### optional
-- **autoFocus** *(bool)* on component mount, steal focus if possible
-- **className** *(string)* dom wrapper classes to add (usually flex-* layout)
-- **disabled** *(bool)* to disable/enable
-- **defaultValue**: (string) fallback value if none provided
-- **data-\*** *(string)* used to add tags for onchange handler that are passed as attributes
-- **help** *(string)* addes help text under text element when focused
-- **icon** *(string)* icon name to use (see icons section for info)
-- **id** *(string)* suffix for id. rendered in dom, looks like: text-((props.id))
-- **type** *(string)* passed through to input dom
-- **label** *(string)* label text
-- **noValid** *(bool)* disable inline validation
-- **onBlur** *(func)* custom onBlur handler
-- **onFocus** *(func)* custom focus handler
-- **onKeydown** *(func)* custom keydown
-- **onKeyPress** *(func*)
-- **pattern** *(obj)* object with 2 keys, message (str) and pattern (regex | func). used for inline validation.
-- **placeholder** *(string)* string for input placeholder text
-- **required** *(string)* causes error class to be added if focus then blur with no value` }/>
+            source={textMD}/>
 
         </div>
       </div>
@@ -189,16 +100,7 @@ in your html, include
         </Tabs>
         <div className="flex-half">
           <ReactMarkdown
-            source={`import this as Tabs and Tab. Nest Tab in Tabs wrapper component
-#### Tab props
-- **className** *(string)* optional classname string to append to builtin
-- **defaultActiveKey** *(number)* default active key if none provided
-- **activeKey** *(number)* current tab index to show tab content for
-- **onSelect** *(func)* function to call when a different tab is selected
-
-#### Tab props
-- **label** *(string)* label for this tab
-- **icon** *(string)* optional icon for tab label`}/>
+            source={tabsMD}/>
         </div>
       </div>
       <div className="flex-wrap wrap">
@@ -206,7 +108,7 @@ in your html, include
         <div className="flex-half">
           <button
             onClick={() => this.setState({showModal: true})}
-            className="button primary short">
+            className="button primary short inline">
               Pop Demo Modal
           </button>
           <Modal
@@ -225,16 +127,7 @@ in your html, include
           </Modal>
         </div>
         <div className="flex-half">
-          <ReactMarkdown source={`this component has multiple subcomponents; you can import the whole thing as a single component.
-nest at least Modal.Header and Modal.Body inside Modal.
-
-#### toplevel props
-- **show** *(bool)* whether or not to show the modal
-- **onHide** *(func)* function to call when modal is closed
-
-#### modal.header props
-- **close** *(bool)* is this modal closable
-`}/>
+          <ReactMarkdown source={modalMD}/>
         </div>
       </div>
     </div>;

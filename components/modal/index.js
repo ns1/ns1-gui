@@ -5,7 +5,7 @@ import ModalBody from './body';
 import ModalFooter from './footer';
 import './modal.scss';
 
-class Modal extends React.Component {
+class ModalComp extends React.Component {
 
   static propTypes = {
     /* eslint-disable react/no-deprecated */
@@ -60,9 +60,11 @@ class Modal extends React.Component {
   }
 }
 
-Modal.Title = ModalTitle;
-Modal.Header = ModalHeader;
-Modal.Body = ModalBody;
-Modal.Footer = ModalFooter;
+ModalComp.Title = ModalTitle;
+ModalComp.Header = ModalHeader;
+ModalComp.Body = ModalBody;
+ModalComp.Footer = ModalFooter;
 
 export default Modal;
+export const Modal = ModalComp;
+export modalMD from './modal.md.js';

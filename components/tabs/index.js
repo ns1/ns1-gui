@@ -58,3 +58,5 @@ export class Tab extends React.Component{
     </div>;
   }
 }
+
+export tabsMD from './tabs.md.js';
