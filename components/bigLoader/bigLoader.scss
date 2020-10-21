@@ -1,3 +1,4 @@
+@import '../../scss/colors.scss';
 .bl-wrapper{
   display: block;
   height: 100%;
@@ -13,7 +14,6 @@
     text-align: center;
     .loader{
       color: $pink1-background;
-      padding-bottom: 80px;
       .loader-dot{
         font-size: 50px;
       }

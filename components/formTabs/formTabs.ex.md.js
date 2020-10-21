@@ -1,0 +1,1 @@
+export default `formTabs stub`;

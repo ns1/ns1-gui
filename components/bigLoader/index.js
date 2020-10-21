@@ -1,7 +1,7 @@
 import React from 'react';
-import Loader from './loader';
+import Loader from '../loader';
 import './bigLoader.scss';
-export default class BigLoader extends React.Component{
+class BigLoaderComp extends React.Component{
   constructor(props){
     super(props);
   }
@@ -36,3 +36,8 @@ export default class BigLoader extends React.Component{
     </div>;
   }
 }
+
+export const BigLoader = BigLoaderComp;
+export default BigLoaderComp;
+export bigloaderMD from './bigloader.md';
+export bigloaderEX from './bigloader.ex.md';

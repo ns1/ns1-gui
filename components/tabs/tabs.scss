@@ -103,6 +103,10 @@
     display: inherit;
     // metadata
   }
+  .minheight{
+    position:relative;
+    min-height: 80px;
+  }
 }
 .bunder-container .enclosure{
   .tabs{

@@ -60,3 +60,4 @@ export class Tab extends React.Component{
 }
 
 export tabsMD from './tabs.md.js';
+export tabsEX from './tabs.ex.md.js';

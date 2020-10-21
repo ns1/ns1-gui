@@ -1,0 +1,1 @@
+export default `cleverList stub`;
