@@ -1,0 +1,138 @@
+@import './colors';
+@import './themes';
+.pill{
+  color: white;
+  overflow: visible;
+  display: inline-block;
+  .icon.closex:before {
+      cursor: pointer;
+  }
+  &.closer{
+    display: flex;
+    flex-wrap: no-wrap;
+    align-items: center;
+    span{
+      display: block;
+    }
+    span:first-child{
+      flex: 10 0 0;
+    }
+    span:last-child{
+      flex: 1 0 0;
+    }
+  }
+  &.small{
+    position: relative;
+    &.round{
+      padding: 2px 6px;
+      border-radius: 15px;
+      &.narrow{
+        padding: 2px 4px;
+      }
+    }
+    &.boxy{
+      padding: 6px 6px;
+      border-radius: 2px;
+      &.short{
+        padding: 3px 6px;
+      }
+    }
+    .icon{
+      margin-right: 4px;
+      height: 11px;
+      &.solo{
+        margin-right: 0px;
+      }
+    }
+    &.lonely{
+      .icon{
+        padding: 0px;
+        margin-right: 0px;
+      }
+    }
+  }
+  &.smallest{
+    &.round{
+      padding: 2px 5px;
+      border-radius: 20px;
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      font-size:12px;
+      line-height: 12px; 
+    }
+  }
+  &.large{
+      &.round{
+        padding: 0px 12px;
+        border-radius: 40px; 
+      }
+      &.boxy{
+        padding: 0px 4px;
+        border-radius: 4px;      
+      }
+  }
+  &.medium{
+      &.round{
+        padding: 0px 12px;
+        border-radius: 40px; 
+      }
+      &.boxy{
+        padding: 4px 8px;
+        border-radius: 4px;      
+      }
+  }
+
+  padding: 3px 6px;
+  border-radius: 13px;
+
+  .icon{
+    &.closex:before {
+      font-size: 80%;
+    }
+    margin-left: 5px;
+    height: 11px;
+    &.solo{
+      margin-right: 0px;
+    }
+  }
+
+  &.blue{
+    background-color: $blue-secondary;
+    @include themify($themes) {
+      background: themed('bluePill');
+    }
+  }
+  &.red{
+    background-color: $errorred-status;
+  }
+  &.magenta{
+    background-color: $ns1-magenta-primary;
+  }
+  &.gray{
+    @include themify($themes) {
+      background: themed('grayPill');
+      color: themed('grayPillText');
+    }
+  }
+  &.black{
+    background-color: black;
+    color: white;
+    @include themify($themes) {
+      background: themed('blackPill');
+      color: themed('blackPillText');
+    }
+  }
+  &.full{
+    display:inline-block;
+  }
+  &.ethereal{
+    color: $gunmetal-secondary;
+  }
+  &.green{
+    background-color: $confirmgreen-status;
+  }
+  &.upper {
+    text-transform: uppercase;
+  }
+}

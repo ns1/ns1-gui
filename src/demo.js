@@ -17,6 +17,7 @@ import {Tooltip, tooltipMD, tooltipEX} from '../components/tooltip';
 import {TypeAhead, typeaheadMD, typeaheadEX} from '../components/typeahead';
 import {Text, textMD, textEX} from '../components/text';
 import {Tabs, Tab, tabsMD, tabsEX} from '../components/tabs';
+import {CleverList, cleverlistMD, cleverlistEX} from '../components/cleverList';
 import ReactMarkdown from 'react-markdown';
 import installation from './installation'
 import DemoBlock from './demoblock';
@@ -25,7 +26,11 @@ class Docs extends React.Component {
   constructor(props){
     super(props);
     this.state = {
-      textExample: ''
+      textExample: '',
+      cleverSelected: {
+        someKey: 'somevalue 1',
+        name: 'Example Item 1'
+      }
     };
     this.hideModal = this.hideModal.bind(this);
   }
@@ -75,6 +80,46 @@ class Docs extends React.Component {
               onChange={e=>this.setState({checkbox: e.currentTarget.value})}
               checked={this.state.checkbox === 'demo2'}
               value="demo2"/>
+          </div>
+        </DemoBlock>
+      <DemoBlock
+          title="Cleverlist"
+          ex={cleverlistEX}
+          doc={cleverlistMD}>
+          <div style={{width: '100%'}}>
+            selected value: {this.state.cleverSelected.someKey}
+            <CleverList
+              formatting={i=>i.name}
+              onSelect={i=>this.setState({cleverSelected: i})}
+              interior={true}
+              itemsVisible={2}
+              pills={[
+                (i) => `Demopill ${i.someKey}`
+              ]}
+              items={[{
+                someKey: 'somevalue 1',
+                name: 'Example Item 1'
+              }, {
+                someKey: 'somevalue 2',
+                name: 'Example Item 2'
+              }, {
+                someKey: 'somevalue 3',
+                name: 'Example Item 3'
+              }]} 
+              options={[
+                {
+                  icon: 'alert',
+                  name: 'Demo Action',
+                  onClick: (i, index, selector) => selector(index) || 
+                    window.alert(JSON.stringify(i))
+                },
+                {
+                  icon: 'folder',
+                  name: 'Demo Disabled',
+                  disabled: e=>true,
+                  onClick: (i, index, selector) => window.alert(JSON.stringify(i))
+                }
+              ]}/>
           </div>
         </DemoBlock>
         <DemoBlock

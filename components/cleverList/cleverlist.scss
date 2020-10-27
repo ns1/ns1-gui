@@ -1,3 +1,6 @@
+@import '../../scss/themes';
+@import '../../scss/colors';
+@import '../../scss/pills';
 .cleverlist{
   &.draggable{
     padding-top: 40px;
@@ -79,6 +82,57 @@
         position: relative !important;
         left: initial !important;
       }
+    }
+  }
+}
+.bunder-container{
+  .vert-middle{
+    .pill{
+      margin-bottom: 0!important;
+    }
+  }
+  .modal-items {
+    .item-row {
+      padding: 0;
+      margin-bottom: 2px;
+    }
+  }
+  .item-row{
+    @include themify($themes) {
+      background: themed('itemRowBackground');
+    }
+    padding-left: 24px;
+    padding-right: 24px;
+    &.has-icon {
+      padding-left: 36px;
+    }
+    &:hover{
+      cursor: pointer;
+    }
+    .pill:not(:last-child){
+      margin-right: 8px;
+    }
+    .small.pill.round:not(.smallest){
+      min-height: 20px;
+      line-height: 20px;
+      vertical-align: middle;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+    .small.pill.boxy:not(.smallest){
+      min-height: 24px;
+      line-height: 24px;
+      vertical-align: middle;
+      padding-top: 0px;
+      padding-bottom: 0px;
+    }
+  }
+  .squish{
+    .pill{
+      margin-bottom: 8px;
+      // &:first-of-type:not(.full){
+      //   margin-top: 8px;
+      // }
     }
   }
 }
