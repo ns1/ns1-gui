@@ -224,5 +224,5 @@ class TextComp extends React.Component{
 }
 export textMD from './text.md.js';
 export textEX from './text.ex.md.js';
-export default Text;
 export const Text = TextComp;
+export default Text;
