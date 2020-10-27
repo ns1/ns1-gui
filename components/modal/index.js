@@ -65,7 +65,7 @@ ModalComp.Header = ModalHeader;
 ModalComp.Body = ModalBody;
 ModalComp.Footer = ModalFooter;
 
-export default Modal;
+export default ModalComp;
 export const Modal = ModalComp;
 export modalMD from './modal.md.js';
 export modalEX from './modal.ex.md';
