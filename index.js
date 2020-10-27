@@ -1,6 +1,6 @@
 export BigLoader from './components/bigLoader';
 export Checkbox from './components';
-export CleverList from './cleverList';
+// export CleverList from './cleverList';
 export {Dropdown, MenuItem} from './components/dropdown';
 export {FormTabs, FormTab} from './components/formTabs';
 export KeyValue from './components/keyValue';
@@ -8,7 +8,7 @@ export Loader from './components/loader';
 export Modal from './components/modal';
 export Notification from './components/notification';
 export Pagination from './components/pagination';
-export Phaser from './components/phaser';
+// export Phaser from './components/phaser';
 export ProgressBar from './components/progressBar';
 export Radio from './components/radio';
 export Sub from './components/sub';
