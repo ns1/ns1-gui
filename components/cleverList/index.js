@@ -247,7 +247,7 @@ class CleverListComp extends React.Component{
       height={itemSized() * itemsVisible}
       itemCount={items.length}
       itemSize={itemSized}>{this.fullRender(items)}</List>
- 
+
   }
 
   render(){
@@ -270,5 +270,5 @@ class CleverListComp extends React.Component{
 
 export const CleverList = CleverListComp;
 export default CleverList;
-export cleverlistMD from './cleverlist.md.js';
-export cleverlistEX from './cleverlist.ex.md.js';
+export cleverlistMD from './cleverList.md.js';
+export cleverlistEX from './cleverList.ex.md.js';
