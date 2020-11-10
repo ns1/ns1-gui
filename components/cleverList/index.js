@@ -237,7 +237,6 @@ class CleverListComp extends React.Component{
     const {items, itemSize} = this.props;
     const itemSized = itemSize ? itemSize : () => 48;
     const itemsVisible = this.props.itemsVisible || 10;
-    console.log(items, itemSize, itemSized, itemsVisible);
     return <List
       className="allow-overflow"
       onItemsRendered={this.props.asyncRenderSides ? this.updatedRender : undefined}
