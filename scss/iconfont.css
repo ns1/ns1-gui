@@ -1,9 +1,9 @@
 @font-face {
   font-family: "icons";
-  src: url("iconfont.eot?#iefix") format("embedded-opentype"),
-       url("iconfont.woff") format("woff"),
-       url("iconfont.ttf") format("truetype"),
-       url("iconfont.svg#iconfont") format("svg");
+  src: url("/static/css/iconfont.eot?#iefix") format("embedded-opentype"),
+       url("/static/css/iconfont.woff") format("woff"),
+       url("/static/css/iconfont.ttf") format("truetype"),
+       url("/static/css/iconfont.svg#iconfont") format("svg");
   font-weight: normal;
   font-style: normal;
 }
