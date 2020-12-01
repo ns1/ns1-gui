@@ -18,6 +18,7 @@ import {TypeAhead, typeaheadMD, typeaheadEX} from '../components/typeahead';
 import {Text, textMD, textEX} from '../components/text';
 import {Tabs, Tab, tabsMD, tabsEX} from '../components/tabs';
 import {CleverList, cleverlistMD, cleverlistEX} from '../components/cleverList';
+import {CleverButton, cleverbuttonMD, cleverbuttonEX} from '../components/cleverbutton';
 import ReactMarkdown from 'react-markdown';
 import installation from './installation'
 import DemoBlock from './demoblock';
@@ -324,6 +325,21 @@ class Docs extends React.Component {
             direction='top'>
               <span> Info <span className="icon info" /></span>
           </Tooltip>
+        </DemoBlock>
+        <DemoBlock
+          title="Cleverbutton"
+          ex={cleverbuttonEX}
+          doc={cleverbuttonMD}>
+          <CleverButton
+            saving={this.state.saving}
+            saved={false}
+            error={false}
+            text="Submit Record"
+            classes="short inline"
+            onClick={()=>{
+              this.setState({saving: true});
+              setTimeout(()=>this.setState({saving: false}), 2000)
+            }} />
         </DemoBlock>
         <DemoBlock
           title="Typeahead"
