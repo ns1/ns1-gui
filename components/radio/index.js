@@ -10,13 +10,15 @@ class RadioComp extends React.Component{
     name: PropTypes.string,
     id: PropTypes.string,
     value: PropTypes.any,
-    className: PropTypes.string
-
+    className: PropTypes.string,
+    disabled: PropTypes.bool
   }
 
   render() {
-    const {value, label, checked, onChange, name, className} = this.props;
-    return <label className={`radio-label ${className || ''}`}>
+    const {value, label, checked, onChange, name, className, disabledd} = this.props;
+    return <label
+      onClick={e => disabled ? e.preventDefault() && e : e}
+      className={`radio-label ${className || ''} ${disabled ? 'disabled' : ''}`}>
       <input type="radio"
         value={value}
         checked={checked}
