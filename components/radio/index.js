@@ -15,7 +15,7 @@ class RadioComp extends React.Component{
   }
 
   render() {
-    const {value, label, checked, onChange, name, className, disabledd} = this.props;
+    const {value, label, checked, onChange, name, className, disabled} = this.props;
     return <label
       onClick={e => disabled ? e.preventDefault() && e : e}
       className={`radio-label ${className || ''} ${disabled ? 'disabled' : ''}`}>
