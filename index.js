@@ -1,5 +1,6 @@
 export BigLoader from './components/bigLoader';
 export Checkbox from './components/checkbox';
+export CleverButton from './components/cleverbutton';
 export CleverList from './components/cleverList';
 export {Dropdown, MenuItem, OptionsMenu, TextMenu} from './components/dropdown';
 export {FormTabs, FormTab} from './components/formTabs';
