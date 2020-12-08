@@ -11,7 +11,8 @@ class CleverButtonComp extends React.Component{
     text: PropTypes.string,
     error: PropTypes.bool,
     onClick: PropTypes.func,
-    role: PropTypes.string
+    role: PropTypes.string,
+    type: PropTypes.string
   }
   constructor(props) {
     super(props);
@@ -25,9 +26,11 @@ class CleverButtonComp extends React.Component{
       classes,
       text,
       error,
-      onClick
+      onClick,
+      type,
     } = this.props;
     return <button
+      type={type || 'button'}
       role={this.props.role}
       onClick={onClick}
       disabled={disabled}
