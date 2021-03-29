@@ -38,5 +38,5 @@ class ProgressBarComp extends React.Component {
 
 export default ProgressBarComp;
 export const ProgressBar = ProgressBarComp;
-export progressbarEX from './progressbar.ex.md.js';
-export progressbarMD from './progressbar.md.js';
+export progressbarEX from './progressBar.ex.md.js';
+export progressbarMD from './progressBar.md.js';
